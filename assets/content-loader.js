@@ -167,5 +167,33 @@
             .replace(/2024/g, year);
     });
 
+    // ========== GLOBAL TEXT REPLACEMENT ==========
+    // Replace all instances of "CAMI" and "Cami" with actual name
+    // Only in text nodes, not attributes
+    function replaceTextInNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            // Replace variations: CAMI, Cami, cami
+            const newText = text
+                .replace(/\bCAMI\b/g, C.profile.name)
+                .replace(/\bCami\b/g, C.profile.name)
+                .replace(/\bcami\b/g, C.profile.name.toLowerCase());
+            if (text !== newText) {
+                node.textContent = newText;
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // Skip script and style tags
+            if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+                node.childNodes.forEach(replaceTextInNode);
+            }
+        }
+    }
+    replaceTextInNode(document.body);
+
+    // ========== UPDATE TITLE ==========
+    document.title = document.title
+        .replace(/\bCAMI\b/g, C.profile.name)
+        .replace(/\bCami\b/g, C.profile.name);
+
     console.log('✓ CAMI Content loaded successfully');
 })();
