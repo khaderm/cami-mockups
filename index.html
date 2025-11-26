@@ -48,17 +48,8 @@
             flex-wrap: wrap;
         }
         .stat { text-align: center; }
-        .stat-num {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
         .category-nav {
             position: sticky;
             top: 0;
@@ -68,15 +59,9 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             z-index: 100;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
         .category-nav::-webkit-scrollbar { display: none; }
-        .nav-inner {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            min-width: max-content;
-        }
+        .nav-inner { display: flex; gap: 10px; justify-content: center; min-width: max-content; }
         .nav-btn {
             background: var(--surface);
             border: 1px solid rgba(255,255,255,0.1);
@@ -90,16 +75,8 @@
             transition: all 0.3s;
             white-space: nowrap;
         }
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--white);
-            color: var(--bg);
-            border-color: var(--white);
-        }
-        .showcase-main {
-            padding: 40px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .nav-btn:hover, .nav-btn.active { background: var(--white); color: var(--bg); border-color: var(--white); }
+        .showcase-main { padding: 40px 20px; max-width: 1400px; margin: 0 auto; }
         .category-section { margin-bottom: 60px; }
         .category-section.hidden { display: none; }
         .category-header {
@@ -110,86 +87,253 @@
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .category-num {
-            font-size: 0.75rem;
-            font-weight: 700;
-            background: var(--accent);
-            color: var(--white);
-            padding: 5px 12px;
-            border-radius: 20px;
-        }
+        .category-num { font-size: 0.75rem; font-weight: 700; background: var(--accent); color: var(--white); padding: 5px 12px; border-radius: 20px; }
         .category-header h2 { font-size: 1.5rem; font-weight: 700; }
         .category-count { font-size: 0.85rem; color: var(--gray); margin-left: auto; }
-        .mockup-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
+        .mockup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .mockup-card {
             background: var(--surface);
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.05);
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-        .mockup-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
+        .mockup-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+        /* Preview Styles */
         .mockup-preview {
             aspect-ratio: 16/10;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 15px;
         }
-        .mockup-preview::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, rgba(255,51,102,0.1) 0%, rgba(102,51,255,0.1) 50%, rgba(51,255,204,0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .preview-phone {
+            width: 45px;
+            height: 90px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+            padding: 4px;
+            overflow: hidden;
         }
-        .mockup-card:hover .mockup-preview::before { opacity: 1; }
-        .mockup-num {
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(255,255,255,0.1);
+        .preview-header { height: 8px; border-radius: 2px; margin-bottom: 3px; }
+        .preview-hero { height: 25px; border-radius: 2px; margin-bottom: 3px; }
+        .preview-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        .preview-line { height: 4px; border-radius: 1px; }
+        .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; flex: 1; }
+        .preview-box { border-radius: 1px; }
+        .preview-btn { height: 8px; border-radius: 4px; margin-top: 3px; }
+
+        /* Style Variations */
+        .style-minimal .preview-phone { background: #fff; border-color: #eee; }
+        .style-minimal .preview-header { background: #f5f5f5; }
+        .style-minimal .preview-hero { background: #e0e0e0; }
+        .style-minimal .preview-line { background: #f0f0f0; }
+        .style-minimal .preview-btn { background: #000; }
+
+        .style-bold .preview-phone { background: #000; }
+        .style-bold .preview-header { background: #ff3366; }
+        .style-bold .preview-hero { background: linear-gradient(135deg, #ff3366, #ff6b3d); }
+        .style-bold .preview-line { background: #333; }
+        .style-bold .preview-btn { background: #ff3366; }
+
+        .style-dark-luxe .preview-phone { background: #0a0a0a; border-color: #c9a227; }
+        .style-dark-luxe .preview-header { background: #c9a227; }
+        .style-dark-luxe .preview-hero { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
+        .style-dark-luxe .preview-line { background: #222; }
+        .style-dark-luxe .preview-btn { background: #c9a227; }
+
+        .style-brutalist .preview-phone { background: #fff; border: 3px solid #000; border-radius: 0; }
+        .style-brutalist .preview-header { background: #000; border-radius: 0; }
+        .style-brutalist .preview-hero { background: #ff0; border-radius: 0; }
+        .style-brutalist .preview-line { background: #000; border-radius: 0; }
+        .style-brutalist .preview-btn { background: #000; border-radius: 0; }
+
+        .style-gradient .preview-phone { background: linear-gradient(180deg, #667eea, #764ba2); }
+        .style-gradient .preview-header { background: rgba(255,255,255,0.3); }
+        .style-gradient .preview-hero { background: rgba(255,255,255,0.2); }
+        .style-gradient .preview-line { background: rgba(255,255,255,0.15); }
+        .style-gradient .preview-btn { background: #fff; }
+
+        .style-kinetic .preview-phone { background: #0f0f0f; }
+        .style-kinetic .preview-header { background: #00ff88; }
+        .style-kinetic .preview-hero { background: linear-gradient(90deg, #00ff88, #00ccff); animation: shimmer 2s infinite; }
+        .style-kinetic .preview-line { background: #222; }
+        .style-kinetic .preview-btn { background: #00ff88; }
+
+        .style-boho .preview-phone { background: #f5ebe0; border-color: #a68a64; }
+        .style-boho .preview-header { background: #a68a64; }
+        .style-boho .preview-hero { background: #d4a574; }
+        .style-boho .preview-line { background: #e6d5c3; }
+        .style-boho .preview-btn { background: #a68a64; }
+
+        .style-y2k .preview-phone { background: linear-gradient(180deg, #ff69b4, #00bfff); }
+        .style-y2k .preview-header { background: #fff; }
+        .style-y2k .preview-hero { background: rgba(255,255,255,0.5); }
+        .style-y2k .preview-line { background: rgba(255,255,255,0.3); }
+        .style-y2k .preview-btn { background: #ff1493; }
+
+        .style-editorial .preview-phone { background: #fafafa; border-color: #ddd; }
+        .style-editorial .preview-header { background: #000; height: 6px; }
+        .style-editorial .preview-hero { background: #f0f0f0; }
+        .style-editorial .preview-line { background: #e5e5e5; }
+        .style-editorial .preview-btn { background: #000; }
+
+        .style-neon .preview-phone { background: #0a0a0a; }
+        .style-neon .preview-header { background: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+        .style-neon .preview-hero { background: linear-gradient(135deg, #ff00ff, #00ffff); }
+        .style-neon .preview-line { background: #1a1a1a; }
+        .style-neon .preview-btn { background: #00ffff; box-shadow: 0 0 8px #00ffff; }
+
+        .style-hypebeast .preview-phone { background: #000; }
+        .style-hypebeast .preview-header { background: #ff0000; }
+        .style-hypebeast .preview-hero { background: #1a1a1a; }
+        .style-hypebeast .preview-line { background: #333; }
+        .style-hypebeast .preview-btn { background: #ff0000; }
+
+        .style-retro .preview-phone { background: #2a1a0a; border-color: #8b4513; border-radius: 4px; }
+        .style-retro .preview-header { background: #ff6b35; }
+        .style-retro .preview-hero { background: #4a3728; }
+        .style-retro .preview-line { background: #3a2718; }
+        .style-retro .preview-btn { background: #ff6b35; }
+
+        .style-holo .preview-phone { background: linear-gradient(135deg, #a8e6cf, #dda0dd, #87ceeb); }
+        .style-holo .preview-header { background: rgba(255,255,255,0.5); }
+        .style-holo .preview-hero { background: rgba(255,255,255,0.3); }
+        .style-holo .preview-line { background: rgba(255,255,255,0.2); }
+        .style-holo .preview-btn { background: #fff; }
+
+        .style-comic .preview-phone { background: #ffeb3b; border: 3px solid #000; }
+        .style-comic .preview-header { background: #ff1744; }
+        .style-comic .preview-hero { background: #2196f3; }
+        .style-comic .preview-line { background: #000; }
+        .style-comic .preview-btn { background: #ff1744; }
+
+        .style-arcade .preview-phone { background: #1a0a2e; }
+        .style-arcade .preview-header { background: #ff00ff; }
+        .style-arcade .preview-hero { background: linear-gradient(180deg, #00ff00, #008800); }
+        .style-arcade .preview-line { background: #2a1a4e; }
+        .style-arcade .preview-btn { background: #ffff00; }
+
+        .style-festival .preview-phone { background: linear-gradient(180deg, #ff6b6b, #feca57, #48dbfb); }
+        .style-festival .preview-header { background: rgba(0,0,0,0.3); }
+        .style-festival .preview-hero { background: rgba(0,0,0,0.2); }
+        .style-festival .preview-line { background: rgba(0,0,0,0.1); }
+        .style-festival .preview-btn { background: #000; }
+
+        .style-vapor .preview-phone { background: linear-gradient(180deg, #a855f7, #ec4899); }
+        .style-vapor .preview-header { background: rgba(0,255,255,0.5); }
+        .style-vapor .preview-hero { background: rgba(255,255,255,0.2); }
+        .style-vapor .preview-line { background: rgba(255,255,255,0.1); }
+        .style-vapor .preview-btn { background: #00ffff; }
+
+        .style-reality .preview-phone { background: #000; }
+        .style-reality .preview-header { background: #e91e63; }
+        .style-reality .preview-hero { background: linear-gradient(135deg, #e91e63, #9c27b0); }
+        .style-reality .preview-line { background: #1a1a1a; }
+        .style-reality .preview-btn { background: #e91e63; }
+
+        .style-cleanwhite .preview-phone { background: #fff; border-color: #f0f0f0; }
+        .style-cleanwhite .preview-header { background: #fafafa; }
+        .style-cleanwhite .preview-hero { background: #f5f5f5; }
+        .style-cleanwhite .preview-line { background: #eee; }
+        .style-cleanwhite .preview-btn { background: #000; }
+
+        .style-darkmin .preview-phone { background: #0f0f0f; border-color: #222; }
+        .style-darkmin .preview-header { background: #1a1a1a; }
+        .style-darkmin .preview-hero { background: #151515; }
+        .style-darkmin .preview-line { background: #1a1a1a; }
+        .style-darkmin .preview-btn { background: #fff; }
+
+        .style-accent .preview-phone { background: #fff; }
+        .style-accent .preview-header { background: #f5f5f5; }
+        .style-accent .preview-hero { background: #f0f0f0; }
+        .style-accent .preview-line { background: #eee; }
+        .style-accent .preview-btn { background: #ff3366; }
+
+        .style-dopamine .preview-phone { background: #fff; }
+        .style-dopamine .preview-header { background: #ff6b6b; }
+        .style-dopamine .preview-hero { background: #ffd93d; }
+        .style-dopamine .preview-line { background: #6bcb77; }
+        .style-dopamine .preview-btn { background: #4d96ff; }
+
+        .style-noir .preview-phone { background: #0a0a0a; border-color: #1a1a1a; }
+        .style-noir .preview-header { background: #1a1a1a; }
+        .style-noir .preview-hero { background: linear-gradient(180deg, #1a1a1a, #0a0a0a); }
+        .style-noir .preview-line { background: #151515; }
+        .style-noir .preview-btn { background: #333; }
+
+        .style-heat .preview-phone { background: #1a0a0a; }
+        .style-heat .preview-header { background: #ff3300; }
+        .style-heat .preview-hero { background: linear-gradient(180deg, #ff3300, #ff6600); }
+        .style-heat .preview-line { background: #2a1515; }
+        .style-heat .preview-btn { background: #ff3300; }
+
+        .style-velvet .preview-phone { background: #1a0a1a; border-color: #4a1a4a; }
+        .style-velvet .preview-header { background: #8b008b; }
+        .style-velvet .preview-hero { background: linear-gradient(180deg, #4a1a4a, #2a0a2a); }
+        .style-velvet .preview-line { background: #2a1a2a; }
+        .style-velvet .preview-btn { background: #da70d6; }
+
+        .style-awwwards .preview-phone { background: #0a0a0a; }
+        .style-awwwards .preview-header { background: transparent; }
+        .style-awwwards .preview-hero { background: linear-gradient(180deg, #1a1a1a, transparent); }
+        .style-awwwards .preview-line { background: #1a1a1a; }
+        .style-awwwards .preview-btn { background: #fff; }
+
+        .style-instagram .preview-phone { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+        .style-instagram .preview-header { background: rgba(255,255,255,0.3); }
+        .style-instagram .preview-hero { background: rgba(255,255,255,0.2); }
+        .style-instagram .preview-box { background: rgba(255,255,255,0.25); }
+        .style-instagram .preview-btn { background: #fff; }
+
+        .style-tiktok .preview-phone { background: #000; }
+        .style-tiktok .preview-header { background: #25f4ee; }
+        .style-tiktok .preview-hero { background: linear-gradient(180deg, #fe2c55, #000); }
+        .style-tiktok .preview-line { background: #1a1a1a; }
+        .style-tiktok .preview-btn { background: #fe2c55; }
+
+        .style-youtube .preview-phone { background: #0f0f0f; }
+        .style-youtube .preview-header { background: #282828; }
+        .style-youtube .preview-hero { background: #1a1a1a; position: relative; }
+        .style-youtube .preview-hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-left: 6px solid #ff0000; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+        .style-youtube .preview-line { background: #282828; }
+        .style-youtube .preview-btn { background: #ff0000; }
+
+        .style-whatsapp .preview-phone { background: #0b141a; }
+        .style-whatsapp .preview-header { background: #1f2c34; }
+        .style-whatsapp .preview-hero { background: #005c4b; border-radius: 8px; }
+        .style-whatsapp .preview-line { background: #202c33; }
+        .style-whatsapp .preview-btn { background: #25d366; }
+
+        .style-social .preview-phone { background: #0a0a0a; }
+        .style-social .preview-header { background: linear-gradient(90deg, #833ab4, #fe2c55, #ff0000, #25d366); }
+        .style-social .preview-hero { background: #1a1a1a; }
+        .style-social .preview-box { background: #222; }
+        .style-social .preview-btn { background: #fff; }
+
+        @keyframes shimmer {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
         }
-        .mockup-card:hover .mockup-num { color: rgba(255,255,255,0.2); }
+
         .mockup-info { padding: 20px; }
         .mockup-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
         .mockup-info p { font-size: 0.85rem; color: var(--gray); margin-bottom: 15px; }
-        .mockup-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: gap 0.3s;
-        }
-        .mockup-link:hover { gap: 12px; }
+        .mockup-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 0.85rem; font-weight: 500; }
+        .mockup-card:hover .mockup-link { gap: 12px; }
         .mockup-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
-        .tag {
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            color: var(--gray);
-        }
-        .showcase-footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--gray);
-            font-size: 0.85rem;
-        }
+        .tag { font-size: 0.7rem; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 12px; color: var(--gray); }
+        .showcase-footer { text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); color: var(--gray); font-size: 0.85rem; }
         @media (max-width: 768px) {
             .showcase-header { padding: 40px 20px 30px; }
             .stats-row { gap: 25px; }
@@ -202,7 +346,7 @@
 <body>
     <header class="showcase-header">
         <h1>CAMI Mockups</h1>
-        <p>A comprehensive collection of website designs for social media influencers and content creators</p>
+        <p>59 mobile-first website designs for social media influencers and content creators</p>
         <div class="stats-row">
             <div class="stat"><div class="stat-num">59</div><div class="stat-label">Mockups</div></div>
             <div class="stat"><div class="stat-num">10</div><div class="stat-label">Categories</div></div>
@@ -212,17 +356,17 @@
 
     <nav class="category-nav">
         <div class="nav-inner">
-            <button class="nav-btn active" data-category="all">All Mockups</button>
+            <button class="nav-btn active" data-category="all">All</button>
             <button class="nav-btn" data-category="01">Clean Modern</button>
-            <button class="nav-btn" data-category="02">Gen-Z Minimal</button>
-            <button class="nav-btn" data-category="03">Unique Boho</button>
-            <button class="nav-btn" data-category="04">Entertainment Bold</button>
-            <button class="nav-btn" data-category="05">Super Minimalist</button>
-            <button class="nav-btn" data-category="06">Vibrant Lit</button>
-            <button class="nav-btn" data-category="07">Edgy Creator</button>
-            <button class="nav-btn" data-category="08">Seductive Minimal</button>
-            <button class="nav-btn" data-category="09">Award Winning</button>
-            <button class="nav-btn" data-category="10">Social Integrations</button>
+            <button class="nav-btn" data-category="02">Gen-Z</button>
+            <button class="nav-btn" data-category="03">Boho</button>
+            <button class="nav-btn" data-category="04">Entertainment</button>
+            <button class="nav-btn" data-category="05">Minimalist</button>
+            <button class="nav-btn" data-category="06">Vibrant</button>
+            <button class="nav-btn" data-category="07">Edgy</button>
+            <button class="nav-btn" data-category="08">Seductive</button>
+            <button class="nav-btn" data-category="09">Award</button>
+            <button class="nav-btn" data-category="10">Social</button>
         </div>
     </nav>
 
@@ -235,33 +379,64 @@
                 <span class="category-count">3 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">01</span></div>
+                <a href="01-clean-modern/mockup-1-minimalist/" class="mockup-card">
+                    <div class="mockup-preview style-minimal">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:80%"></div>
+                                <div class="preview-line" style="width:60%"></div>
+                                <div class="preview-line" style="width:70%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Minimalist</h3>
-                        <p>Clean lines, ample whitespace, typography-focused</p>
+                        <p>Clean lines, whitespace, typography-focused</p>
                         <div class="mockup-tags"><span class="tag">minimal</span><span class="tag">clean</span></div>
-                        <a href="01-clean-modern/mockup-1-minimalist/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">02</span></div>
+                </a>
+                <a href="01-clean-modern/mockup-2-bold/" class="mockup-card">
+                    <div class="mockup-preview style-bold">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:90%"></div>
+                                <div class="preview-line" style="width:70%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Bold</h3>
-                        <p>Strong typography, high contrast visuals</p>
+                        <p>Strong typography, high contrast</p>
                         <div class="mockup-tags"><span class="tag">bold</span><span class="tag">contrast</span></div>
-                        <a href="01-clean-modern/mockup-2-bold/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">03</span></div>
+                </a>
+                <a href="01-clean-modern/mockup-3-dark-luxe/" class="mockup-card">
+                    <div class="mockup-preview style-dark-luxe">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:70%"></div>
+                                <div class="preview-line" style="width:50%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Dark Luxe</h3>
-                        <p>Dark theme with luxurious gold accents</p>
+                        <p>Dark theme with gold accents</p>
                         <div class="mockup-tags"><span class="tag">dark</span><span class="tag">luxury</span></div>
-                        <a href="01-clean-modern/mockup-3-dark-luxe/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
 
@@ -273,33 +448,63 @@
                 <span class="category-count">3 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">04</span></div>
+                <a href="02-gen-z-minimal/mockup-4-brutalist/" class="mockup-card">
+                    <div class="mockup-preview style-brutalist">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:100%"></div>
+                                <div class="preview-line" style="width:80%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Brutalist</h3>
-                        <p>Raw, unpolished aesthetic with bold typography</p>
+                        <p>Raw, unpolished aesthetic</p>
                         <div class="mockup-tags"><span class="tag">brutalist</span><span class="tag">raw</span></div>
-                        <a href="02-gen-z-minimal/mockup-4-brutalist/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">05</span></div>
+                </a>
+                <a href="02-gen-z-minimal/mockup-5-gradient/" class="mockup-card">
+                    <div class="mockup-preview style-gradient">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:70%"></div>
+                                <div class="preview-line" style="width:50%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Gradient</h3>
-                        <p>Vibrant gradients with modern aesthetics</p>
+                        <p>Vibrant gradient aesthetics</p>
                         <div class="mockup-tags"><span class="tag">gradient</span><span class="tag">colorful</span></div>
-                        <a href="02-gen-z-minimal/mockup-5-gradient/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">06</span></div>
+                </a>
+                <a href="02-gen-z-minimal/mockup-6-kinetic/" class="mockup-card">
+                    <div class="mockup-preview style-kinetic">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:60%"></div>
+                                <div class="preview-line" style="width:80%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Kinetic</h3>
-                        <p>Motion-focused with dynamic animations</p>
+                        <p>Motion-focused animations</p>
                         <div class="mockup-tags"><span class="tag">animation</span><span class="tag">motion</span></div>
-                        <a href="02-gen-z-minimal/mockup-6-kinetic/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
 
@@ -311,33 +516,63 @@
                 <span class="category-count">3 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">07</span></div>
+                <a href="03-unique-boho/mockup-7-boho/" class="mockup-card">
+                    <div class="mockup-preview style-boho">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:70%"></div>
+                                <div class="preview-line" style="width:50%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Boho</h3>
-                        <p>Earthy tones with bohemian vibes</p>
+                        <p>Earthy bohemian vibes</p>
                         <div class="mockup-tags"><span class="tag">boho</span><span class="tag">earthy</span></div>
-                        <a href="03-unique-boho/mockup-7-boho/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">08</span></div>
+                </a>
+                <a href="03-unique-boho/mockup-8-y2k/" class="mockup-card">
+                    <div class="mockup-preview style-y2k">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:80%"></div>
+                                <div class="preview-line" style="width:60%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Y2K</h3>
-                        <p>Nostalgic early 2000s aesthetic</p>
+                        <p>Nostalgic 2000s aesthetic</p>
                         <div class="mockup-tags"><span class="tag">y2k</span><span class="tag">retro</span></div>
-                        <a href="03-unique-boho/mockup-8-y2k/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">09</span></div>
+                </a>
+                <a href="03-unique-boho/mockup-9-editorial/" class="mockup-card">
+                    <div class="mockup-preview style-editorial">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content">
+                                <div class="preview-line" style="width:90%"></div>
+                                <div class="preview-line" style="width:70%"></div>
+                            </div>
+                            <div class="preview-btn"></div>
+                        </div>
+                    </div>
                     <div class="mockup-info">
                         <h3>Editorial</h3>
-                        <p>Magazine-style layout with editorial feel</p>
+                        <p>Magazine-style layout</p>
                         <div class="mockup-tags"><span class="tag">editorial</span><span class="tag">magazine</span></div>
-                        <a href="03-unique-boho/mockup-9-editorial/" class="mockup-link">View Mockup &rarr;</a>
+                        <span class="mockup-link">View Mockup &rarr;</span>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
 
@@ -349,87 +584,105 @@
                 <span class="category-count">9 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">10</span></div>
-                    <div class="mockup-info">
-                        <h3>Neon</h3>
-                        <p>Vibrant neon glow effects</p>
-                        <div class="mockup-tags"><span class="tag">neon</span><span class="tag">glow</span></div>
-                        <a href="04-entertainment-bold/mockup-10-neon/" class="mockup-link">View Mockup &rarr;</a>
+                <a href="04-entertainment-bold/mockup-10-neon/" class="mockup-card">
+                    <div class="mockup-preview style-neon">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:70%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">11</span></div>
-                    <div class="mockup-info">
-                        <h3>Hypebeast</h3>
-                        <p>Streetwear-inspired design</p>
-                        <div class="mockup-tags"><span class="tag">streetwear</span><span class="tag">hype</span></div>
-                        <a href="04-entertainment-bold/mockup-11-hypebeast/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Neon</h3><p>Vibrant neon glow</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-11-hypebeast/" class="mockup-card">
+                    <div class="mockup-preview style-hypebeast">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:60%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">12</span></div>
-                    <div class="mockup-info">
-                        <h3>Retro TV</h3>
-                        <p>Vintage television aesthetic</p>
-                        <div class="mockup-tags"><span class="tag">retro</span><span class="tag">tv</span></div>
-                        <a href="04-entertainment-bold/mockup-12-retrotv/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Hypebeast</h3><p>Streetwear inspired</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-12-retrotv/" class="mockup-card">
+                    <div class="mockup-preview style-retro">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:50%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">13</span></div>
-                    <div class="mockup-info">
-                        <h3>Holographic</h3>
-                        <p>Iridescent holographic effects</p>
-                        <div class="mockup-tags"><span class="tag">holographic</span><span class="tag">iridescent</span></div>
-                        <a href="04-entertainment-bold/mockup-13-holographic/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Retro TV</h3><p>Vintage television</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-13-holographic/" class="mockup-card">
+                    <div class="mockup-preview style-holo">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:70%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">14</span></div>
-                    <div class="mockup-info">
-                        <h3>Comic</h3>
-                        <p>Comic book pop-art style</p>
-                        <div class="mockup-tags"><span class="tag">comic</span><span class="tag">pop-art</span></div>
-                        <a href="04-entertainment-bold/mockup-14-comic/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Holographic</h3><p>Iridescent effects</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-14-comic/" class="mockup-card">
+                    <div class="mockup-preview style-comic">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:60%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">15</span></div>
-                    <div class="mockup-info">
-                        <h3>Arcade</h3>
-                        <p>Retro gaming arcade vibes</p>
-                        <div class="mockup-tags"><span class="tag">arcade</span><span class="tag">gaming</span></div>
-                        <a href="04-entertainment-bold/mockup-15-arcade/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Comic</h3><p>Pop-art style</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-15-arcade/" class="mockup-card">
+                    <div class="mockup-preview style-arcade">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:50%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">16</span></div>
-                    <div class="mockup-info">
-                        <h3>Festival</h3>
-                        <p>Music festival energy</p>
-                        <div class="mockup-tags"><span class="tag">festival</span><span class="tag">music</span></div>
-                        <a href="04-entertainment-bold/mockup-16-festival/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Arcade</h3><p>Retro gaming</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-16-festival/" class="mockup-card">
+                    <div class="mockup-preview style-festival">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:70%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">17</span></div>
-                    <div class="mockup-info">
-                        <h3>Vaporwave</h3>
-                        <p>Retro-futuristic aesthetic</p>
-                        <div class="mockup-tags"><span class="tag">vaporwave</span><span class="tag">retro</span></div>
-                        <a href="04-entertainment-bold/mockup-17-vaporwave/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Festival</h3><p>Music festival energy</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-17-vaporwave/" class="mockup-card">
+                    <div class="mockup-preview style-vapor">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:60%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">18</span></div>
-                    <div class="mockup-info">
-                        <h3>Reality TV</h3>
-                        <p>Reality show inspired design</p>
-                        <div class="mockup-tags"><span class="tag">reality</span><span class="tag">tv</span></div>
-                        <a href="04-entertainment-bold/mockup-18-realitytv/" class="mockup-link">View Mockup &rarr;</a>
+                    <div class="mockup-info"><h3>Vaporwave</h3><p>Retro-futuristic</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="04-entertainment-bold/mockup-18-realitytv/" class="mockup-card">
+                    <div class="mockup-preview style-reality">
+                        <div class="preview-phone">
+                            <div class="preview-header"></div>
+                            <div class="preview-hero"></div>
+                            <div class="preview-content"><div class="preview-line"></div><div class="preview-line" style="width:50%"></div></div>
+                            <div class="preview-btn"></div>
+                        </div>
                     </div>
-                </article>
+                    <div class="mockup-info"><h3>Reality TV</h3><p>Drama inspired</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -441,96 +694,46 @@
                 <span class="category-count">10 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">19</span></div>
-                    <div class="mockup-info">
-                        <h3>Clean White</h3>
-                        <p>Pure white minimal aesthetic</p>
-                        <div class="mockup-tags"><span class="tag">white</span><span class="tag">clean</span></div>
-                        <a href="05-super-minimalist/mockup-19-cleanwhite/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">20</span></div>
-                    <div class="mockup-info">
-                        <h3>Dark Minimal</h3>
-                        <p>Dark mode minimalism</p>
-                        <div class="mockup-tags"><span class="tag">dark</span><span class="tag">minimal</span></div>
-                        <a href="05-super-minimalist/mockup-20-darkminimal/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">21</span></div>
-                    <div class="mockup-info">
-                        <h3>Accent</h3>
-                        <p>Single accent color focus</p>
-                        <div class="mockup-tags"><span class="tag">accent</span><span class="tag">color</span></div>
-                        <a href="05-super-minimalist/mockup-21-accent/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">22</span></div>
-                    <div class="mockup-info">
-                        <h3>Card Stack</h3>
-                        <p>Stacked card layout design</p>
-                        <div class="mockup-tags"><span class="tag">cards</span><span class="tag">stack</span></div>
-                        <a href="05-super-minimalist/mockup-22-cardstack/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">23</span></div>
-                    <div class="mockup-info">
-                        <h3>Fullscreen</h3>
-                        <p>Full-screen immersive sections</p>
-                        <div class="mockup-tags"><span class="tag">fullscreen</span><span class="tag">immersive</span></div>
-                        <a href="05-super-minimalist/mockup-23-fullscreen/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">24</span></div>
-                    <div class="mockup-info">
-                        <h3>Horizontal</h3>
-                        <p>Horizontal scroll layout</p>
-                        <div class="mockup-tags"><span class="tag">horizontal</span><span class="tag">scroll</span></div>
-                        <a href="05-super-minimalist/mockup-24-horizontal/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">25</span></div>
-                    <div class="mockup-info">
-                        <h3>Grid Minimal</h3>
-                        <p>Clean grid-based layout</p>
-                        <div class="mockup-tags"><span class="tag">grid</span><span class="tag">structure</span></div>
-                        <a href="05-super-minimalist/mockup-25-gridminimal/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">26</span></div>
-                    <div class="mockup-info">
-                        <h3>Text Focus</h3>
-                        <p>Typography-centered design</p>
-                        <div class="mockup-tags"><span class="tag">text</span><span class="tag">typography</span></div>
-                        <a href="05-super-minimalist/mockup-26-textfocus/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">27</span></div>
-                    <div class="mockup-info">
-                        <h3>Photo Hero</h3>
-                        <p>Photography-focused hero layout</p>
-                        <div class="mockup-tags"><span class="tag">photo</span><span class="tag">hero</span></div>
-                        <a href="05-super-minimalist/mockup-27-photohero/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">28</span></div>
-                    <div class="mockup-info">
-                        <h3>Linktree</h3>
-                        <p>Link-in-bio style page</p>
-                        <div class="mockup-tags"><span class="tag">links</span><span class="tag">bio</span></div>
-                        <a href="05-super-minimalist/mockup-28-linktree/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="05-super-minimalist/mockup-19-cleanwhite/" class="mockup-card">
+                    <div class="mockup-preview style-cleanwhite"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Clean White</h3><p>Pure white minimal</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-20-darkminimal/" class="mockup-card">
+                    <div class="mockup-preview style-darkmin"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Dark Minimal</h3><p>Dark mode minimalism</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-21-accent/" class="mockup-card">
+                    <div class="mockup-preview style-accent"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:50%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Accent</h3><p>Single accent color</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-22-cardstack/" class="mockup-card">
+                    <div class="mockup-preview style-cleanwhite"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Card Stack</h3><p>Stacked cards</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-23-fullscreen/" class="mockup-card">
+                    <div class="mockup-preview style-darkmin"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:80%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Fullscreen</h3><p>Immersive sections</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-24-horizontal/" class="mockup-card">
+                    <div class="mockup-preview style-minimal"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:90%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Horizontal</h3><p>Horizontal scroll</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-25-gridminimal/" class="mockup-card">
+                    <div class="mockup-preview style-cleanwhite"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Grid Minimal</h3><p>Clean grid layout</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-26-textfocus/" class="mockup-card">
+                    <div class="mockup-preview style-editorial"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Text Focus</h3><p>Typography centered</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-27-photohero/" class="mockup-card">
+                    <div class="mockup-preview style-darkmin"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:50%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Photo Hero</h3><p>Photography focused</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="05-super-minimalist/mockup-28-linktree/" class="mockup-card">
+                    <div class="mockup-preview style-accent"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Linktree</h3><p>Link-in-bio style</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -542,51 +745,26 @@
                 <span class="category-count">5 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">29</span></div>
-                    <div class="mockup-info">
-                        <h3>Dopamine</h3>
-                        <p>Dopamine-inducing bright colors</p>
-                        <div class="mockup-tags"><span class="tag">dopamine</span><span class="tag">bright</span></div>
-                        <a href="06-vibrant-lit/mockup-29-dopamine/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">30</span></div>
-                    <div class="mockup-info">
-                        <h3>Soft Pop</h3>
-                        <p>Soft pastel pop aesthetics</p>
-                        <div class="mockup-tags"><span class="tag">soft</span><span class="tag">pastel</span></div>
-                        <a href="06-vibrant-lit/mockup-30-softpop/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">31</span></div>
-                    <div class="mockup-info">
-                        <h3>Neo Brutal</h3>
-                        <p>Colorful neo-brutalist style</p>
-                        <div class="mockup-tags"><span class="tag">neo</span><span class="tag">brutal</span></div>
-                        <a href="06-vibrant-lit/mockup-31-neobrutal/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">32</span></div>
-                    <div class="mockup-info">
-                        <h3>Aura</h3>
-                        <p>Ethereal aura gradients</p>
-                        <div class="mockup-tags"><span class="tag">aura</span><span class="tag">gradient</span></div>
-                        <a href="06-vibrant-lit/mockup-32-aura/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">33</span></div>
-                    <div class="mockup-info">
-                        <h3>Hyper</h3>
-                        <p>Hyper-saturated energy</p>
-                        <div class="mockup-tags"><span class="tag">hyper</span><span class="tag">saturated</span></div>
-                        <a href="06-vibrant-lit/mockup-33-hyper/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="06-vibrant-lit/mockup-29-dopamine/" class="mockup-card">
+                    <div class="mockup-preview style-dopamine"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Dopamine</h3><p>Bright happy colors</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="06-vibrant-lit/mockup-30-softpop/" class="mockup-card">
+                    <div class="mockup-preview style-y2k"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Soft Pop</h3><p>Soft pastel pops</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="06-vibrant-lit/mockup-31-neobrutal/" class="mockup-card">
+                    <div class="mockup-preview style-comic"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Neo Brutal</h3><p>Colorful brutalist</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="06-vibrant-lit/mockup-32-aura/" class="mockup-card">
+                    <div class="mockup-preview style-holo"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Aura</h3><p>Ethereal gradients</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="06-vibrant-lit/mockup-33-hyper/" class="mockup-card">
+                    <div class="mockup-preview style-festival"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Hyper</h3><p>Hyper-saturated</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -598,51 +776,26 @@
                 <span class="category-count">5 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">34</span></div>
-                    <div class="mockup-info">
-                        <h3>Noir</h3>
-                        <p>Dark noir aesthetic</p>
-                        <div class="mockup-tags"><span class="tag">noir</span><span class="tag">dark</span></div>
-                        <a href="07-edgy-creator/mockup-34-noir/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">35</span></div>
-                    <div class="mockup-info">
-                        <h3>Heat</h3>
-                        <p>Fiery heat-inspired design</p>
-                        <div class="mockup-tags"><span class="tag">heat</span><span class="tag">fire</span></div>
-                        <a href="07-edgy-creator/mockup-35-heat/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">36</span></div>
-                    <div class="mockup-info">
-                        <h3>Spotlight</h3>
-                        <p>Dramatic spotlight effects</p>
-                        <div class="mockup-tags"><span class="tag">spotlight</span><span class="tag">drama</span></div>
-                        <a href="07-edgy-creator/mockup-36-spotlight/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">37</span></div>
-                    <div class="mockup-info">
-                        <h3>Velvet</h3>
-                        <p>Rich velvet textures</p>
-                        <div class="mockup-tags"><span class="tag">velvet</span><span class="tag">texture</span></div>
-                        <a href="07-edgy-creator/mockup-37-velvet/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">38</span></div>
-                    <div class="mockup-info">
-                        <h3>Silhouette</h3>
-                        <p>Dramatic silhouette design</p>
-                        <div class="mockup-tags"><span class="tag">silhouette</span><span class="tag">dramatic</span></div>
-                        <a href="07-edgy-creator/mockup-38-silhouette/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="07-edgy-creator/mockup-34-noir/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Noir</h3><p>Dark noir aesthetic</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="07-edgy-creator/mockup-35-heat/" class="mockup-card">
+                    <div class="mockup-preview style-heat"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Heat</h3><p>Fiery design</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="07-edgy-creator/mockup-36-spotlight/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Spotlight</h3><p>Dramatic spotlight</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="07-edgy-creator/mockup-37-velvet/" class="mockup-card">
+                    <div class="mockup-preview style-velvet"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Velvet</h3><p>Rich velvet</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="07-edgy-creator/mockup-38-silhouette/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:50%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Silhouette</h3><p>Dramatic silhouettes</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -654,51 +807,26 @@
                 <span class="category-count">5 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">39</span></div>
-                    <div class="mockup-info">
-                        <h3>Noir</h3>
-                        <p>Mysterious noir atmosphere</p>
-                        <div class="mockup-tags"><span class="tag">noir</span><span class="tag">mystery</span></div>
-                        <a href="08-seductive-minimal/mockup-39-noir/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">40</span></div>
-                    <div class="mockup-info">
-                        <h3>Heat</h3>
-                        <p>Warm, sensual heat tones</p>
-                        <div class="mockup-tags"><span class="tag">heat</span><span class="tag">warm</span></div>
-                        <a href="08-seductive-minimal/mockup-40-heat/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">41</span></div>
-                    <div class="mockup-info">
-                        <h3>Spotlight</h3>
-                        <p>Intimate spotlight focus</p>
-                        <div class="mockup-tags"><span class="tag">spotlight</span><span class="tag">intimate</span></div>
-                        <a href="08-seductive-minimal/mockup-41-spotlight/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">42</span></div>
-                    <div class="mockup-info">
-                        <h3>Velvet</h3>
-                        <p>Luxurious velvet textures</p>
-                        <div class="mockup-tags"><span class="tag">velvet</span><span class="tag">luxury</span></div>
-                        <a href="08-seductive-minimal/mockup-42-velvet/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">43</span></div>
-                    <div class="mockup-info">
-                        <h3>Silhouette</h3>
-                        <p>Elegant silhouette effects</p>
-                        <div class="mockup-tags"><span class="tag">silhouette</span><span class="tag">elegant</span></div>
-                        <a href="08-seductive-minimal/mockup-43-silhouette/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="08-seductive-minimal/mockup-39-noir/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Noir</h3><p>Mysterious noir</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="08-seductive-minimal/mockup-40-heat/" class="mockup-card">
+                    <div class="mockup-preview style-heat"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Heat</h3><p>Warm sensual tones</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="08-seductive-minimal/mockup-41-spotlight/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Spotlight</h3><p>Intimate spotlight</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="08-seductive-minimal/mockup-42-velvet/" class="mockup-card">
+                    <div class="mockup-preview style-velvet"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Velvet</h3><p>Luxurious velvet</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="08-seductive-minimal/mockup-43-silhouette/" class="mockup-card">
+                    <div class="mockup-preview style-noir"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:50%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Silhouette</h3><p>Elegant silhouettes</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -710,51 +838,26 @@
                 <span class="category-count">5 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">44</span></div>
-                    <div class="mockup-info">
-                        <h3>Locomotive</h3>
-                        <p>Smooth scroll animations</p>
-                        <div class="mockup-tags"><span class="tag">awwwards</span><span class="tag">scroll</span></div>
-                        <a href="09-award-winning/mockup-44-locomotive/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">45</span></div>
-                    <div class="mockup-info">
-                        <h3>Igloo</h3>
-                        <p>Immersive full-screen experience</p>
-                        <div class="mockup-tags"><span class="tag">immersive</span><span class="tag">fullscreen</span></div>
-                        <a href="09-award-winning/mockup-45-igloo/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">46</span></div>
-                    <div class="mockup-info">
-                        <h3>Baseborn</h3>
-                        <p>Elegant micro-interactions</p>
-                        <div class="mockup-tags"><span class="tag">elegant</span><span class="tag">micro</span></div>
-                        <a href="09-award-winning/mockup-46-baseborn/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">47</span></div>
-                    <div class="mockup-info">
-                        <h3>Toyfight</h3>
-                        <p>Playful bold interactions</p>
-                        <div class="mockup-tags"><span class="tag">playful</span><span class="tag">bold</span></div>
-                        <a href="09-award-winning/mockup-47-toyfight/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">48</span></div>
-                    <div class="mockup-info">
-                        <h3>Landberg</h3>
-                        <p>Sophisticated portfolio style</p>
-                        <div class="mockup-tags"><span class="tag">portfolio</span><span class="tag">sophisticated</span></div>
-                        <a href="09-award-winning/mockup-48-landberg/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="09-award-winning/mockup-44-locomotive/" class="mockup-card">
+                    <div class="mockup-preview style-awwwards"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Locomotive</h3><p>Smooth scroll</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="09-award-winning/mockup-45-igloo/" class="mockup-card">
+                    <div class="mockup-preview style-awwwards"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Igloo</h3><p>Immersive experience</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="09-award-winning/mockup-46-baseborn/" class="mockup-card">
+                    <div class="mockup-preview style-awwwards"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Baseborn</h3><p>Micro-interactions</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="09-award-winning/mockup-47-toyfight/" class="mockup-card">
+                    <div class="mockup-preview style-dopamine"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Toyfight</h3><p>Playful bold</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="09-award-winning/mockup-48-landberg/" class="mockup-card">
+                    <div class="mockup-preview style-awwwards"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:50%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Landberg</h3><p>Sophisticated</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
 
@@ -766,105 +869,50 @@
                 <span class="category-count">11 mockups</span>
             </div>
             <div class="mockup-grid">
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">49</span></div>
-                    <div class="mockup-info">
-                        <h3>Instagram Grid</h3>
-                        <p>Native Instagram embed grid</p>
-                        <div class="mockup-tags"><span class="tag">instagram</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-49-instagram-grid/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">50</span></div>
-                    <div class="mockup-info">
-                        <h3>TikTok Carousel</h3>
-                        <p>Native TikTok embed carousel</p>
-                        <div class="mockup-tags"><span class="tag">tiktok</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-50-tiktok-carousel/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">51</span></div>
-                    <div class="mockup-info">
-                        <h3>Social Aggregator</h3>
-                        <p>Combined social feeds</p>
-                        <div class="mockup-tags"><span class="tag">multi</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-51-social-aggregator/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">52</span></div>
-                    <div class="mockup-info">
-                        <h3>YouTube Showcase</h3>
-                        <p>Native YouTube iframe embeds</p>
-                        <div class="mockup-tags"><span class="tag">youtube</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-52-youtube-showcase/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">53</span></div>
-                    <div class="mockup-info">
-                        <h3>Stories Wall</h3>
-                        <p>Instagram stories-style layout</p>
-                        <div class="mockup-tags"><span class="tag">stories</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-53-stories-wall/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">54</span></div>
-                    <div class="mockup-info">
-                        <h3>WhatsApp Hub</h3>
-                        <p>WhatsApp click-to-chat</p>
-                        <div class="mockup-tags"><span class="tag">whatsapp</span><span class="tag">free</span></div>
-                        <a href="10-social-integrations/mockup-54-whatsapp-hub/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">55</span></div>
-                    <div class="mockup-info">
-                        <h3>Instagram Gallery</h3>
-                        <p>Custom masonry with lightbox</p>
-                        <div class="mockup-tags"><span class="tag">instagram</span><span class="tag">custom</span></div>
-                        <a href="10-social-integrations/mockup-55-instagram-gallery/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">56</span></div>
-                    <div class="mockup-info">
-                        <h3>TikTok Swiper</h3>
-                        <p>Full-screen vertical swiper</p>
-                        <div class="mockup-tags"><span class="tag">tiktok</span><span class="tag">custom</span></div>
-                        <a href="10-social-integrations/mockup-56-tiktok-swiper/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">57</span></div>
-                    <div class="mockup-info">
-                        <h3>YouTube Theater</h3>
-                        <p>Theater mode with queue</p>
-                        <div class="mockup-tags"><span class="tag">youtube</span><span class="tag">custom</span></div>
-                        <a href="10-social-integrations/mockup-57-youtube-theater/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">58</span></div>
-                    <div class="mockup-info">
-                        <h3>WhatsApp Chat</h3>
-                        <p>Custom chat interface</p>
-                        <div class="mockup-tags"><span class="tag">whatsapp</span><span class="tag">custom</span></div>
-                        <a href="10-social-integrations/mockup-58-whatsapp-chat/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
-                <article class="mockup-card">
-                    <div class="mockup-preview"><span class="mockup-num">59</span></div>
-                    <div class="mockup-info">
-                        <h3>Social Command</h3>
-                        <p>Unified social dashboard</p>
-                        <div class="mockup-tags"><span class="tag">all</span><span class="tag">custom</span></div>
-                        <a href="10-social-integrations/mockup-59-social-command/" class="mockup-link">View Mockup &rarr;</a>
-                    </div>
-                </article>
+                <a href="10-social-integrations/mockup-49-instagram-grid/" class="mockup-card">
+                    <div class="mockup-preview style-instagram"><div class="preview-phone"><div class="preview-header"></div><div class="preview-grid"><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Instagram Grid</h3><p>Native IG embeds</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-50-tiktok-carousel/" class="mockup-card">
+                    <div class="mockup-preview style-tiktok"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>TikTok Carousel</h3><p>Native TT embeds</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-51-social-aggregator/" class="mockup-card">
+                    <div class="mockup-preview style-social"><div class="preview-phone"><div class="preview-header"></div><div class="preview-grid"><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Aggregator</h3><p>Combined feeds</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-52-youtube-showcase/" class="mockup-card">
+                    <div class="mockup-preview style-youtube"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>YouTube</h3><p>Native YT embeds</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-53-stories-wall/" class="mockup-card">
+                    <div class="mockup-preview style-instagram"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Stories Wall</h3><p>Stories-style layout</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-54-whatsapp-hub/" class="mockup-card">
+                    <div class="mockup-preview style-whatsapp"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>WhatsApp Hub</h3><p>Click-to-chat</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-55-instagram-gallery/" class="mockup-card">
+                    <div class="mockup-preview style-instagram"><div class="preview-phone"><div class="preview-header"></div><div class="preview-grid"><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>IG Gallery</h3><p>Custom masonry</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-56-tiktok-swiper/" class="mockup-card">
+                    <div class="mockup-preview style-tiktok"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:60%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>TikTok Swiper</h3><p>Vertical swiper</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-57-youtube-theater/" class="mockup-card">
+                    <div class="mockup-preview style-youtube"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>YT Theater</h3><p>Theater mode</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-58-whatsapp-chat/" class="mockup-card">
+                    <div class="mockup-preview style-whatsapp"><div class="preview-phone"><div class="preview-header"></div><div class="preview-hero"></div><div class="preview-content"><div class="preview-line" style="width:70%"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>WA Chat</h3><p>Chat interface</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
+                <a href="10-social-integrations/mockup-59-social-command/" class="mockup-card">
+                    <div class="mockup-preview style-social"><div class="preview-phone"><div class="preview-header"></div><div class="preview-grid"><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div><div class="preview-box"></div></div><div class="preview-btn"></div></div></div>
+                    <div class="mockup-info"><h3>Command</h3><p>Social dashboard</p><span class="mockup-link">View &rarr;</span></div>
+                </a>
             </div>
         </section>
     </main>
@@ -884,24 +932,6 @@
             });
         }
         navBtns.forEach(btn => btn.addEventListener('click', () => filterCategory(btn.dataset.category)));
-        const cards = document.querySelectorAll('.mockup-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, i * 50);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.4s ease';
-            observer.observe(card);
-        });
     </script>
 </body>
 </html>
