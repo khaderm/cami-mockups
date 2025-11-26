@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Social Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- TikTok Embed Script -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <!-- Instagram Embed Script -->
+    <script async src="//www.instagram.com/embed.js"></script>
+</head>
+<body>
+    <div class="command-center">
+        <!-- Header -->
+        <header class="cc-header">
+            <a href="/" class="cc-logo">CAMI</a>
+            <nav class="cc-nav">
+                <button class="nav-tab active" data-platform="all">All</button>
+                <button class="nav-tab" data-platform="instagram">IG</button>
+                <button class="nav-tab" data-platform="tiktok">TT</button>
+                <button class="nav-tab" data-platform="youtube">YT</button>
+            </nav>
+            <a href="https://wa.me/1234567890?text=Hi%20Cami!" class="cc-cta" target="_blank">
+                DM Me
+            </a>
+        </header>
+
+        <!-- Hero Stats -->
+        <section class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">125K</span>
+                <span class="stat-label">Instagram</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">89K</span>
+                <span class="stat-label">TikTok</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">45K</span>
+                <span class="stat-label">YouTube</span>
+            </div>
+            <div class="stat-item highlight">
+                <span class="stat-value">259K</span>
+                <span class="stat-label">Total Reach</span>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <main class="cc-main">
+            <!-- Featured Section -->
+            <section class="featured-section" data-platforms="all youtube">
+                <div class="section-header">
+                    <h2>Latest Video</h2>
+                    <a href="https://youtube.com/@cami" class="see-all" target="_blank">YouTube &rarr;</a>
+                </div>
+                <div class="featured-video">
+                    <!--
+                        Replace YOUR_VIDEO_ID with actual YouTube video ID
+                    -->
+                    <iframe
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+                        title="Latest Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Instagram Grid -->
+            <section class="ig-section" data-platforms="all instagram">
+                <div class="section-header">
+                    <h2>Instagram</h2>
+                    <a href="https://instagram.com/cami" class="see-all" target="_blank">@cami &rarr;</a>
+                </div>
+                <div class="ig-grid">
+                    <!--
+                        Each item opens Instagram embed in lightbox
+                        Replace data-post-url with actual post URLs
+                    -->
+                    <div class="ig-item" data-post-url="https://www.instagram.com/p/POST_ID_1/">
+                        <div class="ig-thumb">
+                            <span class="ig-type">POST</span>
+                        </div>
+                    </div>
+                    <div class="ig-item" data-post-url="https://www.instagram.com/p/POST_ID_2/">
+                        <div class="ig-thumb">
+                            <span class="ig-type">REEL</span>
+                        </div>
+                    </div>
+                    <div class="ig-item" data-post-url="https://www.instagram.com/p/POST_ID_3/">
+                        <div class="ig-thumb">
+                            <span class="ig-type">POST</span>
+                        </div>
+                    </div>
+                    <div class="ig-item" data-post-url="https://www.instagram.com/p/POST_ID_4/">
+                        <div class="ig-thumb">
+                            <span class="ig-type">REEL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TikTok Section -->
+            <section class="tt-section" data-platforms="all tiktok">
+                <div class="section-header">
+                    <h2>TikTok</h2>
+                    <a href="https://tiktok.com/@cami" class="see-all" target="_blank">@cami &rarr;</a>
+                </div>
+                <div class="tt-scroll">
+                    <!--
+                        Each item opens TikTok embed in modal
+                        Replace data-tiktok-url with actual video URLs
+                    -->
+                    <div class="tt-item" data-tiktok-url="https://www.tiktok.com/@cami/video/VIDEO_ID_1">
+                        <div class="tt-preview">
+                            <div class="tt-play">
+                                <span>&#9658;</span>
+                            </div>
+                            <div class="tt-stats">
+                                <span>1.2M</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tt-item" data-tiktok-url="https://www.tiktok.com/@cami/video/VIDEO_ID_2">
+                        <div class="tt-preview">
+                            <div class="tt-play">
+                                <span>&#9658;</span>
+                            </div>
+                            <div class="tt-stats">
+                                <span>890K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tt-item" data-tiktok-url="https://www.tiktok.com/@cami/video/VIDEO_ID_3">
+                        <div class="tt-preview">
+                            <div class="tt-play">
+                                <span>&#9658;</span>
+                            </div>
+                            <div class="tt-stats">
+                                <span>456K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tt-item" data-tiktok-url="https://www.tiktok.com/@cami/video/VIDEO_ID_4">
+                        <div class="tt-preview">
+                            <div class="tt-play">
+                                <span>&#9658;</span>
+                            </div>
+                            <div class="tt-stats">
+                                <span>234K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- YouTube Playlist -->
+            <section class="yt-section" data-platforms="all youtube">
+                <div class="section-header">
+                    <h2>More Videos</h2>
+                    <a href="https://youtube.com/@cami/videos" class="see-all" target="_blank">All &rarr;</a>
+                </div>
+                <div class="yt-list">
+                    <!--
+                        Replace data-video-id with actual YouTube video IDs
+                    -->
+                    <div class="yt-item" data-video-id="VIDEO_ID_2">
+                        <div class="yt-thumb">
+                            <span class="yt-duration">8:24</span>
+                        </div>
+                        <div class="yt-info">
+                            <h4>Get Ready With Me for Brand Event</h4>
+                            <span class="yt-views">8.2K views</span>
+                        </div>
+                    </div>
+                    <div class="yt-item" data-video-id="VIDEO_ID_3">
+                        <div class="yt-thumb">
+                            <span class="yt-duration">15:32</span>
+                        </div>
+                        <div class="yt-info">
+                            <h4>Restaurant Reviews: Hidden Gems</h4>
+                            <span class="yt-views">15.6K views</span>
+                        </div>
+                    </div>
+                    <div class="yt-item" data-video-id="VIDEO_ID_4">
+                        <div class="yt-thumb">
+                            <span class="yt-duration">12:08</span>
+                        </div>
+                        <div class="yt-info">
+                            <h4>Event Planning Behind the Scenes</h4>
+                            <span class="yt-views">9.4K views</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Connect Section -->
+            <section class="connect-section" data-platforms="all">
+                <div class="section-header">
+                    <h2>Connect With Me</h2>
+                </div>
+                <div class="connect-grid">
+                    <a href="https://instagram.com/cami" class="connect-card ig" target="_blank">
+                        <span class="connect-icon">IG</span>
+                        <span class="connect-label">Instagram</span>
+                        <span class="connect-handle">@cami</span>
+                    </a>
+                    <a href="https://tiktok.com/@cami" class="connect-card tt" target="_blank">
+                        <span class="connect-icon">TT</span>
+                        <span class="connect-label">TikTok</span>
+                        <span class="connect-handle">@cami</span>
+                    </a>
+                    <a href="https://youtube.com/@cami" class="connect-card yt" target="_blank">
+                        <span class="connect-icon">YT</span>
+                        <span class="connect-label">YouTube</span>
+                        <span class="connect-handle">@cami</span>
+                    </a>
+                    <a href="https://wa.me/1234567890" class="connect-card wa" target="_blank">
+                        <span class="connect-icon">WA</span>
+                        <span class="connect-label">WhatsApp</span>
+                        <span class="connect-handle">Message Me</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Embed Modal -->
+        <div class="embed-modal" id="embedModal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Dynamic embed content -->
+            </div>
+        </div>
+
+        <!-- YouTube Player Modal -->
+        <div class="yt-modal" id="ytModal">
+            <button class="modal-close" id="ytModalClose">&times;</button>
+            <div class="yt-modal-content">
+                <iframe id="ytModalPlayer" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Mobile Bottom Nav -->
+        <nav class="mobile-nav">
+            <button class="mobile-tab active" data-platform="all">All</button>
+            <button class="mobile-tab" data-platform="instagram">IG</button>
+            <button class="mobile-tab" data-platform="tiktok">TT</button>
+            <button class="mobile-tab" data-platform="youtube">YT</button>
+        </nav>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

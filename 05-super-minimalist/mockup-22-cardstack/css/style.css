@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.stack {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    gap: 15px;
+}
+
+.card {
+    width: 100%;
+    max-width: 340px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.hero-card {
+    text-align: center;
+}
+
+.hero-card h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.hero-card p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.social-card {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.social-slider {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 5px 0;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.social-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.social-slider a {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 500;
+    scroll-snap-align: start;
+    transition: all 0.2s;
+}
+
+.social-slider a:hover {
+    background: #333;
+    color: #fff;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.video-card:hover {
+    transform: scale(1.02);
+}
+
+.play {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+@media (min-width: 768px) {
+    .card {
+        max-width: 400px;
+    }
+
+    .hero-card h1 {
+        font-size: 2.5rem;
+    }
+}

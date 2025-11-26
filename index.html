@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Website Mockups Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --white: #fff;
+            --gray: #888;
+            --accent: #ff3366;
+        }
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .showcase-header {
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .showcase-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .showcase-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .category-nav::-webkit-scrollbar { display: none; }
+        .nav-inner {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            min-width: max-content;
+        }
+        .nav-btn {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--white);
+            color: var(--bg);
+            border-color: var(--white);
+        }
+        .showcase-main {
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .category-section { margin-bottom: 60px; }
+        .category-section.hidden { display: none; }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .category-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .category-header h2 { font-size: 1.5rem; font-weight: 700; }
+        .category-count { font-size: 0.85rem; color: var(--gray); margin-left: auto; }
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .mockup-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .mockup-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .mockup-preview {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .mockup-preview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255,51,102,0.1) 0%, rgba(102,51,255,0.1) 50%, rgba(51,255,204,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .mockup-card:hover .mockup-preview::before { opacity: 1; }
+        .mockup-num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.1);
+        }
+        .mockup-card:hover .mockup-num { color: rgba(255,255,255,0.2); }
+        .mockup-info { padding: 20px; }
+        .mockup-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .mockup-info p { font-size: 0.85rem; color: var(--gray); margin-bottom: 15px; }
+        .mockup-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: gap 0.3s;
+        }
+        .mockup-link:hover { gap: 12px; }
+        .mockup-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--gray);
+        }
+        .showcase-footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .showcase-header { padding: 40px 20px 30px; }
+            .stats-row { gap: 25px; }
+            .stat-num { font-size: 2rem; }
+            .nav-inner { justify-content: flex-start; padding: 0 10px; }
+            .mockup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="showcase-header">
+        <h1>CAMI Mockups</h1>
+        <p>A comprehensive collection of website designs for social media influencers and content creators</p>
+        <div class="stats-row">
+            <div class="stat"><div class="stat-num">59</div><div class="stat-label">Mockups</div></div>
+            <div class="stat"><div class="stat-num">10</div><div class="stat-label">Categories</div></div>
+            <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Mobile-First</div></div>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <div class="nav-inner">
+            <button class="nav-btn active" data-category="all">All Mockups</button>
+            <button class="nav-btn" data-category="01">Clean Modern</button>
+            <button class="nav-btn" data-category="02">Gen-Z Minimal</button>
+            <button class="nav-btn" data-category="03">Unique Boho</button>
+            <button class="nav-btn" data-category="04">Entertainment Bold</button>
+            <button class="nav-btn" data-category="05">Super Minimalist</button>
+            <button class="nav-btn" data-category="06">Vibrant Lit</button>
+            <button class="nav-btn" data-category="07">Edgy Creator</button>
+            <button class="nav-btn" data-category="08">Seductive Minimal</button>
+            <button class="nav-btn" data-category="09">Award Winning</button>
+            <button class="nav-btn" data-category="10">Social Integrations</button>
+        </div>
+    </nav>
+
+    <main class="showcase-main">
+        <!-- 01 - Clean Modern -->
+        <section class="category-section" data-category="01">
+            <div class="category-header">
+                <span class="category-num">01</span>
+                <h2>Clean Modern</h2>
+                <span class="category-count">3 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">01</span></div>
+                    <div class="mockup-info">
+                        <h3>Minimalist</h3>
+                        <p>Clean lines, ample whitespace, typography-focused</p>
+                        <div class="mockup-tags"><span class="tag">minimal</span><span class="tag">clean</span></div>
+                        <a href="01-clean-modern/mockup-1-minimalist/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">02</span></div>
+                    <div class="mockup-info">
+                        <h3>Bold</h3>
+                        <p>Strong typography, high contrast visuals</p>
+                        <div class="mockup-tags"><span class="tag">bold</span><span class="tag">contrast</span></div>
+                        <a href="01-clean-modern/mockup-2-bold/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">03</span></div>
+                    <div class="mockup-info">
+                        <h3>Dark Luxe</h3>
+                        <p>Dark theme with luxurious gold accents</p>
+                        <div class="mockup-tags"><span class="tag">dark</span><span class="tag">luxury</span></div>
+                        <a href="01-clean-modern/mockup-3-dark-luxe/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 02 - Gen-Z Minimal -->
+        <section class="category-section" data-category="02">
+            <div class="category-header">
+                <span class="category-num">02</span>
+                <h2>Gen-Z Minimal</h2>
+                <span class="category-count">3 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">04</span></div>
+                    <div class="mockup-info">
+                        <h3>Brutalist</h3>
+                        <p>Raw, unpolished aesthetic with bold typography</p>
+                        <div class="mockup-tags"><span class="tag">brutalist</span><span class="tag">raw</span></div>
+                        <a href="02-gen-z-minimal/mockup-4-brutalist/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">05</span></div>
+                    <div class="mockup-info">
+                        <h3>Gradient</h3>
+                        <p>Vibrant gradients with modern aesthetics</p>
+                        <div class="mockup-tags"><span class="tag">gradient</span><span class="tag">colorful</span></div>
+                        <a href="02-gen-z-minimal/mockup-5-gradient/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">06</span></div>
+                    <div class="mockup-info">
+                        <h3>Kinetic</h3>
+                        <p>Motion-focused with dynamic animations</p>
+                        <div class="mockup-tags"><span class="tag">animation</span><span class="tag">motion</span></div>
+                        <a href="02-gen-z-minimal/mockup-6-kinetic/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 03 - Unique Boho -->
+        <section class="category-section" data-category="03">
+            <div class="category-header">
+                <span class="category-num">03</span>
+                <h2>Unique Boho</h2>
+                <span class="category-count">3 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">07</span></div>
+                    <div class="mockup-info">
+                        <h3>Boho</h3>
+                        <p>Earthy tones with bohemian vibes</p>
+                        <div class="mockup-tags"><span class="tag">boho</span><span class="tag">earthy</span></div>
+                        <a href="03-unique-boho/mockup-7-boho/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">08</span></div>
+                    <div class="mockup-info">
+                        <h3>Y2K</h3>
+                        <p>Nostalgic early 2000s aesthetic</p>
+                        <div class="mockup-tags"><span class="tag">y2k</span><span class="tag">retro</span></div>
+                        <a href="03-unique-boho/mockup-8-y2k/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">09</span></div>
+                    <div class="mockup-info">
+                        <h3>Editorial</h3>
+                        <p>Magazine-style layout with editorial feel</p>
+                        <div class="mockup-tags"><span class="tag">editorial</span><span class="tag">magazine</span></div>
+                        <a href="03-unique-boho/mockup-9-editorial/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 04 - Entertainment Bold -->
+        <section class="category-section" data-category="04">
+            <div class="category-header">
+                <span class="category-num">04</span>
+                <h2>Entertainment Bold</h2>
+                <span class="category-count">9 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">10</span></div>
+                    <div class="mockup-info">
+                        <h3>Neon</h3>
+                        <p>Vibrant neon glow effects</p>
+                        <div class="mockup-tags"><span class="tag">neon</span><span class="tag">glow</span></div>
+                        <a href="04-entertainment-bold/mockup-10-neon/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">11</span></div>
+                    <div class="mockup-info">
+                        <h3>Hypebeast</h3>
+                        <p>Streetwear-inspired design</p>
+                        <div class="mockup-tags"><span class="tag">streetwear</span><span class="tag">hype</span></div>
+                        <a href="04-entertainment-bold/mockup-11-hypebeast/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">12</span></div>
+                    <div class="mockup-info">
+                        <h3>Retro TV</h3>
+                        <p>Vintage television aesthetic</p>
+                        <div class="mockup-tags"><span class="tag">retro</span><span class="tag">tv</span></div>
+                        <a href="04-entertainment-bold/mockup-12-retrotv/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">13</span></div>
+                    <div class="mockup-info">
+                        <h3>Holographic</h3>
+                        <p>Iridescent holographic effects</p>
+                        <div class="mockup-tags"><span class="tag">holographic</span><span class="tag">iridescent</span></div>
+                        <a href="04-entertainment-bold/mockup-13-holographic/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">14</span></div>
+                    <div class="mockup-info">
+                        <h3>Comic</h3>
+                        <p>Comic book pop-art style</p>
+                        <div class="mockup-tags"><span class="tag">comic</span><span class="tag">pop-art</span></div>
+                        <a href="04-entertainment-bold/mockup-14-comic/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">15</span></div>
+                    <div class="mockup-info">
+                        <h3>Arcade</h3>
+                        <p>Retro gaming arcade vibes</p>
+                        <div class="mockup-tags"><span class="tag">arcade</span><span class="tag">gaming</span></div>
+                        <a href="04-entertainment-bold/mockup-15-arcade/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">16</span></div>
+                    <div class="mockup-info">
+                        <h3>Festival</h3>
+                        <p>Music festival energy</p>
+                        <div class="mockup-tags"><span class="tag">festival</span><span class="tag">music</span></div>
+                        <a href="04-entertainment-bold/mockup-16-festival/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">17</span></div>
+                    <div class="mockup-info">
+                        <h3>Vaporwave</h3>
+                        <p>Retro-futuristic aesthetic</p>
+                        <div class="mockup-tags"><span class="tag">vaporwave</span><span class="tag">retro</span></div>
+                        <a href="04-entertainment-bold/mockup-17-vaporwave/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">18</span></div>
+                    <div class="mockup-info">
+                        <h3>Reality TV</h3>
+                        <p>Reality show inspired design</p>
+                        <div class="mockup-tags"><span class="tag">reality</span><span class="tag">tv</span></div>
+                        <a href="04-entertainment-bold/mockup-18-realitytv/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 05 - Super Minimalist -->
+        <section class="category-section" data-category="05">
+            <div class="category-header">
+                <span class="category-num">05</span>
+                <h2>Super Minimalist</h2>
+                <span class="category-count">10 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">19</span></div>
+                    <div class="mockup-info">
+                        <h3>Clean White</h3>
+                        <p>Pure white minimal aesthetic</p>
+                        <div class="mockup-tags"><span class="tag">white</span><span class="tag">clean</span></div>
+                        <a href="05-super-minimalist/mockup-19-cleanwhite/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">20</span></div>
+                    <div class="mockup-info">
+                        <h3>Dark Minimal</h3>
+                        <p>Dark mode minimalism</p>
+                        <div class="mockup-tags"><span class="tag">dark</span><span class="tag">minimal</span></div>
+                        <a href="05-super-minimalist/mockup-20-darkminimal/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">21</span></div>
+                    <div class="mockup-info">
+                        <h3>Accent</h3>
+                        <p>Single accent color focus</p>
+                        <div class="mockup-tags"><span class="tag">accent</span><span class="tag">color</span></div>
+                        <a href="05-super-minimalist/mockup-21-accent/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">22</span></div>
+                    <div class="mockup-info">
+                        <h3>Card Stack</h3>
+                        <p>Stacked card layout design</p>
+                        <div class="mockup-tags"><span class="tag">cards</span><span class="tag">stack</span></div>
+                        <a href="05-super-minimalist/mockup-22-cardstack/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">23</span></div>
+                    <div class="mockup-info">
+                        <h3>Fullscreen</h3>
+                        <p>Full-screen immersive sections</p>
+                        <div class="mockup-tags"><span class="tag">fullscreen</span><span class="tag">immersive</span></div>
+                        <a href="05-super-minimalist/mockup-23-fullscreen/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">24</span></div>
+                    <div class="mockup-info">
+                        <h3>Horizontal</h3>
+                        <p>Horizontal scroll layout</p>
+                        <div class="mockup-tags"><span class="tag">horizontal</span><span class="tag">scroll</span></div>
+                        <a href="05-super-minimalist/mockup-24-horizontal/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">25</span></div>
+                    <div class="mockup-info">
+                        <h3>Grid Minimal</h3>
+                        <p>Clean grid-based layout</p>
+                        <div class="mockup-tags"><span class="tag">grid</span><span class="tag">structure</span></div>
+                        <a href="05-super-minimalist/mockup-25-gridminimal/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">26</span></div>
+                    <div class="mockup-info">
+                        <h3>Text Focus</h3>
+                        <p>Typography-centered design</p>
+                        <div class="mockup-tags"><span class="tag">text</span><span class="tag">typography</span></div>
+                        <a href="05-super-minimalist/mockup-26-textfocus/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">27</span></div>
+                    <div class="mockup-info">
+                        <h3>Photo Hero</h3>
+                        <p>Photography-focused hero layout</p>
+                        <div class="mockup-tags"><span class="tag">photo</span><span class="tag">hero</span></div>
+                        <a href="05-super-minimalist/mockup-27-photohero/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">28</span></div>
+                    <div class="mockup-info">
+                        <h3>Linktree</h3>
+                        <p>Link-in-bio style page</p>
+                        <div class="mockup-tags"><span class="tag">links</span><span class="tag">bio</span></div>
+                        <a href="05-super-minimalist/mockup-28-linktree/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 06 - Vibrant Lit -->
+        <section class="category-section" data-category="06">
+            <div class="category-header">
+                <span class="category-num">06</span>
+                <h2>Vibrant Lit</h2>
+                <span class="category-count">5 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">29</span></div>
+                    <div class="mockup-info">
+                        <h3>Dopamine</h3>
+                        <p>Dopamine-inducing bright colors</p>
+                        <div class="mockup-tags"><span class="tag">dopamine</span><span class="tag">bright</span></div>
+                        <a href="06-vibrant-lit/mockup-29-dopamine/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">30</span></div>
+                    <div class="mockup-info">
+                        <h3>Soft Pop</h3>
+                        <p>Soft pastel pop aesthetics</p>
+                        <div class="mockup-tags"><span class="tag">soft</span><span class="tag">pastel</span></div>
+                        <a href="06-vibrant-lit/mockup-30-softpop/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">31</span></div>
+                    <div class="mockup-info">
+                        <h3>Neo Brutal</h3>
+                        <p>Colorful neo-brutalist style</p>
+                        <div class="mockup-tags"><span class="tag">neo</span><span class="tag">brutal</span></div>
+                        <a href="06-vibrant-lit/mockup-31-neobrutal/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">32</span></div>
+                    <div class="mockup-info">
+                        <h3>Aura</h3>
+                        <p>Ethereal aura gradients</p>
+                        <div class="mockup-tags"><span class="tag">aura</span><span class="tag">gradient</span></div>
+                        <a href="06-vibrant-lit/mockup-32-aura/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">33</span></div>
+                    <div class="mockup-info">
+                        <h3>Hyper</h3>
+                        <p>Hyper-saturated energy</p>
+                        <div class="mockup-tags"><span class="tag">hyper</span><span class="tag">saturated</span></div>
+                        <a href="06-vibrant-lit/mockup-33-hyper/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 07 - Edgy Creator -->
+        <section class="category-section" data-category="07">
+            <div class="category-header">
+                <span class="category-num">07</span>
+                <h2>Edgy Creator</h2>
+                <span class="category-count">5 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">34</span></div>
+                    <div class="mockup-info">
+                        <h3>Noir</h3>
+                        <p>Dark noir aesthetic</p>
+                        <div class="mockup-tags"><span class="tag">noir</span><span class="tag">dark</span></div>
+                        <a href="07-edgy-creator/mockup-34-noir/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">35</span></div>
+                    <div class="mockup-info">
+                        <h3>Heat</h3>
+                        <p>Fiery heat-inspired design</p>
+                        <div class="mockup-tags"><span class="tag">heat</span><span class="tag">fire</span></div>
+                        <a href="07-edgy-creator/mockup-35-heat/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">36</span></div>
+                    <div class="mockup-info">
+                        <h3>Spotlight</h3>
+                        <p>Dramatic spotlight effects</p>
+                        <div class="mockup-tags"><span class="tag">spotlight</span><span class="tag">drama</span></div>
+                        <a href="07-edgy-creator/mockup-36-spotlight/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">37</span></div>
+                    <div class="mockup-info">
+                        <h3>Velvet</h3>
+                        <p>Rich velvet textures</p>
+                        <div class="mockup-tags"><span class="tag">velvet</span><span class="tag">texture</span></div>
+                        <a href="07-edgy-creator/mockup-37-velvet/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">38</span></div>
+                    <div class="mockup-info">
+                        <h3>Silhouette</h3>
+                        <p>Dramatic silhouette design</p>
+                        <div class="mockup-tags"><span class="tag">silhouette</span><span class="tag">dramatic</span></div>
+                        <a href="07-edgy-creator/mockup-38-silhouette/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 08 - Seductive Minimal -->
+        <section class="category-section" data-category="08">
+            <div class="category-header">
+                <span class="category-num">08</span>
+                <h2>Seductive Minimal</h2>
+                <span class="category-count">5 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">39</span></div>
+                    <div class="mockup-info">
+                        <h3>Noir</h3>
+                        <p>Mysterious noir atmosphere</p>
+                        <div class="mockup-tags"><span class="tag">noir</span><span class="tag">mystery</span></div>
+                        <a href="08-seductive-minimal/mockup-39-noir/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">40</span></div>
+                    <div class="mockup-info">
+                        <h3>Heat</h3>
+                        <p>Warm, sensual heat tones</p>
+                        <div class="mockup-tags"><span class="tag">heat</span><span class="tag">warm</span></div>
+                        <a href="08-seductive-minimal/mockup-40-heat/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">41</span></div>
+                    <div class="mockup-info">
+                        <h3>Spotlight</h3>
+                        <p>Intimate spotlight focus</p>
+                        <div class="mockup-tags"><span class="tag">spotlight</span><span class="tag">intimate</span></div>
+                        <a href="08-seductive-minimal/mockup-41-spotlight/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">42</span></div>
+                    <div class="mockup-info">
+                        <h3>Velvet</h3>
+                        <p>Luxurious velvet textures</p>
+                        <div class="mockup-tags"><span class="tag">velvet</span><span class="tag">luxury</span></div>
+                        <a href="08-seductive-minimal/mockup-42-velvet/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">43</span></div>
+                    <div class="mockup-info">
+                        <h3>Silhouette</h3>
+                        <p>Elegant silhouette effects</p>
+                        <div class="mockup-tags"><span class="tag">silhouette</span><span class="tag">elegant</span></div>
+                        <a href="08-seductive-minimal/mockup-43-silhouette/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 09 - Award Winning -->
+        <section class="category-section" data-category="09">
+            <div class="category-header">
+                <span class="category-num">09</span>
+                <h2>Award Winning</h2>
+                <span class="category-count">5 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">44</span></div>
+                    <div class="mockup-info">
+                        <h3>Locomotive</h3>
+                        <p>Smooth scroll animations</p>
+                        <div class="mockup-tags"><span class="tag">awwwards</span><span class="tag">scroll</span></div>
+                        <a href="09-award-winning/mockup-44-locomotive/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">45</span></div>
+                    <div class="mockup-info">
+                        <h3>Igloo</h3>
+                        <p>Immersive full-screen experience</p>
+                        <div class="mockup-tags"><span class="tag">immersive</span><span class="tag">fullscreen</span></div>
+                        <a href="09-award-winning/mockup-45-igloo/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">46</span></div>
+                    <div class="mockup-info">
+                        <h3>Baseborn</h3>
+                        <p>Elegant micro-interactions</p>
+                        <div class="mockup-tags"><span class="tag">elegant</span><span class="tag">micro</span></div>
+                        <a href="09-award-winning/mockup-46-baseborn/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">47</span></div>
+                    <div class="mockup-info">
+                        <h3>Toyfight</h3>
+                        <p>Playful bold interactions</p>
+                        <div class="mockup-tags"><span class="tag">playful</span><span class="tag">bold</span></div>
+                        <a href="09-award-winning/mockup-47-toyfight/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">48</span></div>
+                    <div class="mockup-info">
+                        <h3>Landberg</h3>
+                        <p>Sophisticated portfolio style</p>
+                        <div class="mockup-tags"><span class="tag">portfolio</span><span class="tag">sophisticated</span></div>
+                        <a href="09-award-winning/mockup-48-landberg/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 10 - Social Integrations -->
+        <section class="category-section" data-category="10">
+            <div class="category-header">
+                <span class="category-num">10</span>
+                <h2>Social Integrations</h2>
+                <span class="category-count">11 mockups</span>
+            </div>
+            <div class="mockup-grid">
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">49</span></div>
+                    <div class="mockup-info">
+                        <h3>Instagram Grid</h3>
+                        <p>Native Instagram embed grid</p>
+                        <div class="mockup-tags"><span class="tag">instagram</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-49-instagram-grid/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">50</span></div>
+                    <div class="mockup-info">
+                        <h3>TikTok Carousel</h3>
+                        <p>Native TikTok embed carousel</p>
+                        <div class="mockup-tags"><span class="tag">tiktok</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-50-tiktok-carousel/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">51</span></div>
+                    <div class="mockup-info">
+                        <h3>Social Aggregator</h3>
+                        <p>Combined social feeds</p>
+                        <div class="mockup-tags"><span class="tag">multi</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-51-social-aggregator/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">52</span></div>
+                    <div class="mockup-info">
+                        <h3>YouTube Showcase</h3>
+                        <p>Native YouTube iframe embeds</p>
+                        <div class="mockup-tags"><span class="tag">youtube</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-52-youtube-showcase/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">53</span></div>
+                    <div class="mockup-info">
+                        <h3>Stories Wall</h3>
+                        <p>Instagram stories-style layout</p>
+                        <div class="mockup-tags"><span class="tag">stories</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-53-stories-wall/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">54</span></div>
+                    <div class="mockup-info">
+                        <h3>WhatsApp Hub</h3>
+                        <p>WhatsApp click-to-chat</p>
+                        <div class="mockup-tags"><span class="tag">whatsapp</span><span class="tag">free</span></div>
+                        <a href="10-social-integrations/mockup-54-whatsapp-hub/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">55</span></div>
+                    <div class="mockup-info">
+                        <h3>Instagram Gallery</h3>
+                        <p>Custom masonry with lightbox</p>
+                        <div class="mockup-tags"><span class="tag">instagram</span><span class="tag">custom</span></div>
+                        <a href="10-social-integrations/mockup-55-instagram-gallery/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">56</span></div>
+                    <div class="mockup-info">
+                        <h3>TikTok Swiper</h3>
+                        <p>Full-screen vertical swiper</p>
+                        <div class="mockup-tags"><span class="tag">tiktok</span><span class="tag">custom</span></div>
+                        <a href="10-social-integrations/mockup-56-tiktok-swiper/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">57</span></div>
+                    <div class="mockup-info">
+                        <h3>YouTube Theater</h3>
+                        <p>Theater mode with queue</p>
+                        <div class="mockup-tags"><span class="tag">youtube</span><span class="tag">custom</span></div>
+                        <a href="10-social-integrations/mockup-57-youtube-theater/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">58</span></div>
+                    <div class="mockup-info">
+                        <h3>WhatsApp Chat</h3>
+                        <p>Custom chat interface</p>
+                        <div class="mockup-tags"><span class="tag">whatsapp</span><span class="tag">custom</span></div>
+                        <a href="10-social-integrations/mockup-58-whatsapp-chat/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+                <article class="mockup-card">
+                    <div class="mockup-preview"><span class="mockup-num">59</span></div>
+                    <div class="mockup-info">
+                        <h3>Social Command</h3>
+                        <p>Unified social dashboard</p>
+                        <div class="mockup-tags"><span class="tag">all</span><span class="tag">custom</span></div>
+                        <a href="10-social-integrations/mockup-59-social-command/" class="mockup-link">View Mockup &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="showcase-footer">
+        <p>CAMI Website Mockups &mdash; Built for content creators</p>
+    </footer>
+
+    <script>
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.category-section');
+        function filterCategory(category) {
+            navBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.category === category));
+            sections.forEach(section => {
+                if (category === 'all') section.classList.remove('hidden');
+                else section.classList.toggle('hidden', section.dataset.category !== category);
+            });
+        }
+        navBtns.forEach(btn => btn.addEventListener('click', () => filterCategory(btn.dataset.category)));
+        const cards = document.querySelectorAll('.mockup-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, i * 50);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.4s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

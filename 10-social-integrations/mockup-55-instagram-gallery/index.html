@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gallery-layout">
+        <header class="header-gallery">
+            <a href="/" class="logo">CAMI</a>
+            <a href="https://instagram.com/cami" class="ig-follow" target="_blank">
+                Follow @cami
+            </a>
+        </header>
+
+        <main class="main-gallery">
+            <section class="hero-gallery">
+                <h1>My Gallery</h1>
+                <p>Click any image to view the full Instagram post</p>
+            </section>
+
+            <!-- Custom Masonry Grid -->
+            <div class="masonry-grid" id="gallery">
+                <!--
+                    SETUP INSTRUCTIONS:
+                    1. Replace data-post-url with your Instagram post URL
+                    2. Replace the background-image with your image URL
+                    3. You can get image URLs from your Instagram posts
+                -->
+
+                <div class="gallery-item tall"
+                     data-post-url="https://instagram.com/p/POST_ID_1/"
+                     data-type="image">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/600?1')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>♥ 2.4K</span>
+                            <span>💬 89</span>
+                        </div>
+                        <span class="item-type">Photo</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item"
+                     data-post-url="https://instagram.com/p/POST_ID_2/"
+                     data-type="image">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/400?2')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>♥ 1.8K</span>
+                            <span>💬 45</span>
+                        </div>
+                        <span class="item-type">Photo</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item"
+                     data-post-url="https://instagram.com/reel/REEL_ID_1/"
+                     data-type="reel">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/400?3')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>▶ 12K</span>
+                            <span>♥ 3.2K</span>
+                        </div>
+                        <span class="item-type">Reel</span>
+                    </div>
+                    <div class="play-badge">▶</div>
+                </div>
+
+                <div class="gallery-item wide"
+                     data-post-url="https://instagram.com/p/POST_ID_3/"
+                     data-type="carousel">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/800/400?4')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>♥ 4.1K</span>
+                            <span>💬 156</span>
+                        </div>
+                        <span class="item-type">Carousel</span>
+                    </div>
+                    <div class="carousel-badge">❐ 5</div>
+                </div>
+
+                <div class="gallery-item tall"
+                     data-post-url="https://instagram.com/reel/REEL_ID_2/"
+                     data-type="reel">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/600?5')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>▶ 45K</span>
+                            <span>♥ 8.9K</span>
+                        </div>
+                        <span class="item-type">Reel</span>
+                    </div>
+                    <div class="play-badge">▶</div>
+                </div>
+
+                <div class="gallery-item"
+                     data-post-url="https://instagram.com/p/POST_ID_4/"
+                     data-type="image">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/400?6')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>♥ 956</span>
+                            <span>💬 32</span>
+                        </div>
+                        <span class="item-type">Photo</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item"
+                     data-post-url="https://instagram.com/p/POST_ID_5/"
+                     data-type="image">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/400?7')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>♥ 2.1K</span>
+                            <span>💬 78</span>
+                        </div>
+                        <span class="item-type">Photo</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item"
+                     data-post-url="https://instagram.com/reel/REEL_ID_3/"
+                     data-type="reel">
+                    <div class="item-bg" style="background-image: url('https://picsum.photos/400/400?8')"></div>
+                    <div class="item-overlay">
+                        <div class="item-stats">
+                            <span>▶ 28K</span>
+                            <span>♥ 5.4K</span>
+                        </div>
+                        <span class="item-type">Reel</span>
+                    </div>
+                    <div class="play-badge">▶</div>
+                </div>
+            </div>
+
+            <a href="https://instagram.com/cami" class="view-all" target="_blank">
+                View all on Instagram →
+            </a>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightbox-close">✕</button>
+            <div class="lightbox-content" id="lightbox-content">
+                <!-- Instagram embed will be injected here -->
+            </div>
+        </div>
+
+        <footer class="footer-gallery">
+            <nav class="footer-nav">
+                <a href="https://tiktok.com">TikTok</a>
+                <a href="https://youtube.com">YouTube</a>
+                <a href="https://wa.me/1234567890">Contact</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Watch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theater-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar-theater">
+            <a href="/" class="logo-theater">CAMI</a>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="videos">
+                    <span class="nav-icon">▶</span>
+                    <span class="nav-label">Videos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="shorts">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-label">Shorts</span>
+                </a>
+                <a href="#" class="nav-item" data-section="playlists">
+                    <span class="nav-icon">☰</span>
+                    <span class="nav-label">Playlists</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="https://youtube.com/@cami?sub_confirmation=1" class="sub-btn" target="_blank">
+                    Subscribe
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-theater">
+            <!-- Featured Video Player -->
+            <section class="player-section">
+                <div class="player-container" id="playerContainer">
+                    <!--
+                        Replace YOUR_VIDEO_ID with your YouTube video ID
+                        Get it from: youtube.com/watch?v=YOUR_VIDEO_ID
+                    -->
+                    <iframe
+                        id="mainPlayer"
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+                        title="Featured Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="player-info">
+                    <h1 id="videoTitle">A Week in My Life as a Content Creator | Vlog</h1>
+                    <div class="video-meta">
+                        <span class="views">12,456 views</span>
+                        <span class="separator">•</span>
+                        <span class="date">2 days ago</span>
+                    </div>
+                    <p class="video-description" id="videoDescription">
+                        Follow along as I take you through a typical week in my life! From brand meetings to content shoots to events...
+                        <button class="show-more">Show more</button>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Video Queue / Playlist -->
+            <section class="queue-section">
+                <div class="queue-header">
+                    <h2>Up Next</h2>
+                    <button class="autoplay-toggle" id="autoplayToggle">
+                        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        Autoplay
+                    </button>
+                </div>
+
+                <div class="video-queue" id="videoQueue">
+                    <!-- Video items - click to load in player -->
+                    <div class="queue-item" data-video-id="VIDEO_ID_2" data-title="Get Ready With Me for Brand Event" data-views="8,234">
+                        <div class="queue-thumb">
+                            <span class="queue-duration">8:24</span>
+                        </div>
+                        <div class="queue-info">
+                            <h4>Get Ready With Me for Brand Event</h4>
+                            <span class="queue-meta">8,234 views</span>
+                        </div>
+                    </div>
+
+                    <div class="queue-item" data-video-id="VIDEO_ID_3" data-title="Restaurant Reviews: Hidden Gems" data-views="15,678">
+                        <div class="queue-thumb">
+                            <span class="queue-duration">15:32</span>
+                        </div>
+                        <div class="queue-info">
+                            <h4>Restaurant Reviews: Hidden Gems</h4>
+                            <span class="queue-meta">15,678 views</span>
+                        </div>
+                    </div>
+
+                    <div class="queue-item" data-video-id="VIDEO_ID_4" data-title="Event Planning Behind the Scenes" data-views="9,456">
+                        <div class="queue-thumb">
+                            <span class="queue-duration">12:08</span>
+                        </div>
+                        <div class="queue-info">
+                            <h4>Event Planning Behind the Scenes</h4>
+                            <span class="queue-meta">9,456 views</span>
+                        </div>
+                    </div>
+
+                    <div class="queue-item" data-video-id="VIDEO_ID_5" data-title="My Morning Routine 2025" data-views="22,890">
+                        <div class="queue-thumb">
+                            <span class="queue-duration">6:45</span>
+                        </div>
+                        <div class="queue-info">
+                            <h4>My Morning Routine 2025</h4>
+                            <span class="queue-meta">22,890 views</span>
+                        </div>
+                    </div>
+
+                    <div class="queue-item" data-video-id="VIDEO_ID_6" data-title="Apartment Tour 2025" data-views="34,567">
+                        <div class="queue-thumb">
+                            <span class="queue-duration">18:22</span>
+                        </div>
+                        <div class="queue-info">
+                            <h4>Apartment Tour 2025</h4>
+                            <span class="queue-meta">34,567 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://youtube.com/@cami/videos" class="view-all" target="_blank">
+                    View all videos →
+                </a>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Nav -->
+        <nav class="mobile-nav">
+            <a href="https://instagram.com" class="mobile-link">IG</a>
+            <a href="https://tiktok.com" class="mobile-link">TT</a>
+            <a href="https://wa.me/1234567890" class="mobile-link">DM</a>
+        </nav>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

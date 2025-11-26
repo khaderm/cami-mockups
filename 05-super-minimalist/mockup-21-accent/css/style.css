@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fafafa;
+    color: #222;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+main {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.accent-bar {
+    height: 4px;
+    background: #ff4757;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.social-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 15px 20px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.social-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.social-scroll a {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+    scroll-snap-align: start;
+    transition: all 0.2s;
+}
+
+.social-scroll a:hover,
+.social-scroll a.active {
+    background: #ff4757;
+    color: #fff;
+    border-color: #ff4757;
+}
+
+.video-preview {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 16/9;
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.video-preview:hover {
+    border-color: #ff4757;
+}
+
+.video-preview span {
+    color: #ff4757;
+    font-size: 1.2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+@media (min-width: 768px) {
+    .content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .video-preview {
+        max-width: 350px;
+    }
+}

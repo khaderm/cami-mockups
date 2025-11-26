@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Chat With Me</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-app">
+        <!-- Chat Header -->
+        <header class="chat-header">
+            <a href="/" class="back-btn">&larr;</a>
+            <div class="contact-info">
+                <div class="avatar">C</div>
+                <div class="contact-details">
+                    <h1>CAMI</h1>
+                    <span class="status">Usually replies within 1 hour</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="action-icon">...</span>
+            </div>
+        </header>
+
+        <!-- Chat Messages -->
+        <main class="chat-messages" id="chatMessages">
+            <!-- Welcome Message from CAMI -->
+            <div class="message received">
+                <div class="message-content">
+                    <p>Hey there! Welcome to my page.</p>
+                </div>
+                <span class="message-time">Just now</span>
+            </div>
+
+            <div class="message received">
+                <div class="message-content">
+                    <p>I'm so excited you're here! What can I help you with today?</p>
+                </div>
+                <span class="message-time">Just now</span>
+            </div>
+
+            <!-- Service Options -->
+            <div class="service-options">
+                <h3>Quick Options</h3>
+                <div class="options-grid">
+                    <button class="option-btn" data-service="collab">
+                        <span class="option-icon">*</span>
+                        <span class="option-label">Brand Collab</span>
+                    </button>
+                    <button class="option-btn" data-service="event">
+                        <span class="option-icon">@</span>
+                        <span class="option-label">Event Planning</span>
+                    </button>
+                    <button class="option-btn" data-service="content">
+                        <span class="option-icon">#</span>
+                        <span class="option-label">Content Creation</span>
+                    </button>
+                    <button class="option-btn" data-service="booking">
+                        <span class="option-icon">%</span>
+                        <span class="option-label">Book Me</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Conversation Flow (shows based on selection) -->
+            <div class="conversation-flow" id="conversationFlow">
+                <!-- Dynamic content inserted here -->
+            </div>
+        </main>
+
+        <!-- Message Input Area -->
+        <footer class="chat-footer">
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="Type a message..." class="message-input">
+                <button class="send-btn" id="sendBtn">
+                    <span class="send-icon">&rarr;</span>
+                </button>
+            </div>
+            <p class="wa-notice">
+                Messages open in WhatsApp
+                <span class="wa-badge">FREE</span>
+            </p>
+        </footer>
+
+        <!-- WhatsApp CTA Overlay -->
+        <div class="wa-overlay" id="waOverlay">
+            <div class="wa-card">
+                <div class="wa-icon-large">W</div>
+                <h2>Continue on WhatsApp</h2>
+                <p class="wa-message" id="waMessage">Your message is ready!</p>
+                <a href="#" class="wa-btn" id="waBtn" target="_blank">
+                    Open WhatsApp
+                </a>
+                <button class="wa-cancel" id="waCancel">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Service Detail Modals -->
+        <div class="service-modal" id="serviceModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+
+                <!-- Brand Collab -->
+                <div class="service-detail" data-service="collab">
+                    <div class="service-header">
+                        <span class="service-icon">*</span>
+                        <h2>Brand Collaborations</h2>
+                    </div>
+                    <p>Let's create amazing content together! I work with brands on:</p>
+                    <ul class="service-list">
+                        <li>Sponsored posts & stories</li>
+                        <li>Product reviews & unboxings</li>
+                        <li>Brand ambassadorships</li>
+                        <li>Event appearances</li>
+                    </ul>
+                    <div class="quick-messages">
+                        <h4>Quick Messages:</h4>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'm reaching out about a potential brand collaboration. Would love to discuss working together!">
+                            General Inquiry
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'm from [Brand Name] and we'd love to partner with you on an upcoming campaign. Can we chat?">
+                            Partnership Proposal
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! We have a product we think your audience would love. Interested in a sponsored post?">
+                            Sponsored Content
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Event Planning -->
+                <div class="service-detail" data-service="event">
+                    <div class="service-header">
+                        <span class="service-icon">@</span>
+                        <h2>Event Planning</h2>
+                    </div>
+                    <p>From intimate gatherings to grand celebrations, I've got you covered:</p>
+                    <ul class="service-list">
+                        <li>Birthday parties & celebrations</li>
+                        <li>Corporate events</li>
+                        <li>Product launches</li>
+                        <li>Themed parties</li>
+                    </ul>
+                    <div class="quick-messages">
+                        <h4>Quick Messages:</h4>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'm planning an event and would love your help. Can we discuss the details?">
+                            Event Inquiry
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'm throwing a birthday party and need your expertise. Date: [Date], Theme: [Theme]">
+                            Birthday Party
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! Our company is hosting an event and we'd love to have you plan it. Can we schedule a call?">
+                            Corporate Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Creation -->
+                <div class="service-detail" data-service="content">
+                    <div class="service-header">
+                        <span class="service-icon">#</span>
+                        <h2>Content Creation</h2>
+                    </div>
+                    <p>Need eye-catching content? I create:</p>
+                    <ul class="service-list">
+                        <li>Social media content</li>
+                        <li>Photo & video shoots</li>
+                        <li>UGC (User Generated Content)</li>
+                        <li>Reels & TikToks</li>
+                    </ul>
+                    <div class="quick-messages">
+                        <h4>Quick Messages:</h4>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I need help creating content for my brand. Can we chat about what you offer?">
+                            Content Inquiry
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'm looking for UGC content for my product. What are your rates?">
+                            UGC Request
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I need someone to create Reels/TikToks for my business. Interested?">
+                            Social Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Booking -->
+                <div class="service-detail" data-service="booking">
+                    <div class="service-header">
+                        <span class="service-icon">%</span>
+                        <h2>Book Me</h2>
+                    </div>
+                    <p>Available for various appearances and gigs:</p>
+                    <ul class="service-list">
+                        <li>Event hosting & MC</li>
+                        <li>Meet & greets</li>
+                        <li>Club appearances</li>
+                        <li>Brand activations</li>
+                    </ul>
+                    <div class="quick-messages">
+                        <h4>Quick Messages:</h4>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! I'd like to book you for an upcoming event. Date: [Date], Location: [Location]">
+                            Event Booking
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! We'd love to have you host our event. Can we discuss availability and rates?">
+                            Hosting Request
+                        </button>
+                        <button class="quick-msg-btn" data-msg="Hi Cami! Interested in having you at our venue/club. What's your availability?">
+                            Appearance Request
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

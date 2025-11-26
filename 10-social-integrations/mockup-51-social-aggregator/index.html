@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - All My Content</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aggregator-layout">
+        <header class="header-agg">
+            <a href="/" class="logo-agg">CAMI</a>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="instagram">IG</button>
+                <button class="filter-tab" data-filter="tiktok">TT</button>
+                <button class="filter-tab" data-filter="youtube">YT</button>
+            </div>
+        </header>
+
+        <main class="main-agg">
+            <section class="intro-agg">
+                <h1>All My Content</h1>
+                <p>Native embeds from all platforms - 100% free</p>
+            </section>
+
+            <!-- Aggregated Native Embeds -->
+            <div class="social-feed" id="social-feed">
+
+                <!-- INSTAGRAM EMBED -->
+                <article class="feed-item" data-platform="instagram">
+                    <div class="item-label">
+                        <span class="platform-badge ig">◉ Instagram</span>
+                    </div>
+                    <div class="embed-container">
+                        <!-- Replace with your Instagram embed code -->
+                        <blockquote class="instagram-media"
+                            data-instgrm-captioned
+                            data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID/"
+                            data-instgrm-version="14">
+                            <div class="embed-placeholder ig-placeholder">
+                                <p>Instagram Post</p>
+                                <span>Paste your embed code here</span>
+                            </div>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- TIKTOK EMBED -->
+                <article class="feed-item" data-platform="tiktok">
+                    <div class="item-label">
+                        <span class="platform-badge tt">♪ TikTok</span>
+                    </div>
+                    <div class="embed-container">
+                        <!-- Replace with your TikTok embed code -->
+                        <blockquote class="tiktok-embed"
+                            cite="https://www.tiktok.com/@username/video/VIDEO_ID"
+                            data-video-id="VIDEO_ID">
+                            <section class="embed-placeholder tt-placeholder">
+                                <p>TikTok Video</p>
+                                <span>Paste your embed code here</span>
+                            </section>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- YOUTUBE EMBED -->
+                <article class="feed-item" data-platform="youtube">
+                    <div class="item-label">
+                        <span class="platform-badge yt">▶ YouTube</span>
+                    </div>
+                    <div class="embed-container">
+                        <!-- Replace VIDEO_ID with your YouTube video ID -->
+                        <div class="youtube-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                                title="YouTube video"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                            <div class="embed-placeholder yt-placeholder">
+                                <p>YouTube Video</p>
+                                <span>Replace YOUR_VIDEO_ID in the iframe src</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Another Instagram -->
+                <article class="feed-item" data-platform="instagram">
+                    <div class="item-label">
+                        <span class="platform-badge ig">◉ Reel</span>
+                    </div>
+                    <div class="embed-container">
+                        <blockquote class="instagram-media"
+                            data-instgrm-captioned
+                            data-instgrm-permalink="https://www.instagram.com/reel/YOUR_REEL_ID/"
+                            data-instgrm-version="14">
+                            <div class="embed-placeholder ig-placeholder">
+                                <p>Instagram Reel</p>
+                                <span>Paste your embed code here</span>
+                            </div>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- Another TikTok -->
+                <article class="feed-item" data-platform="tiktok">
+                    <div class="item-label">
+                        <span class="platform-badge tt">♪ TikTok</span>
+                    </div>
+                    <div class="embed-container">
+                        <blockquote class="tiktok-embed"
+                            cite="https://www.tiktok.com/@username/video/VIDEO_ID_2"
+                            data-video-id="VIDEO_ID_2">
+                            <section class="embed-placeholder tt-placeholder">
+                                <p>TikTok Video</p>
+                                <span>Paste your embed code here</span>
+                            </section>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- Another YouTube -->
+                <article class="feed-item" data-platform="youtube">
+                    <div class="item-label">
+                        <span class="platform-badge yt">▶ YouTube Short</span>
+                    </div>
+                    <div class="embed-container">
+                        <div class="youtube-wrapper shorts">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_SHORT_ID"
+                                title="YouTube Short"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                            <div class="embed-placeholder yt-placeholder">
+                                <p>YouTube Short</p>
+                                <span>Replace YOUR_SHORT_ID</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Instructions -->
+            <section class="instructions">
+                <h3>How to Use This Template:</h3>
+                <div class="instruction-grid">
+                    <div class="instruction-card">
+                        <span class="platform-icon ig">◉</span>
+                        <h4>Instagram</h4>
+                        <p>Open post → (...) → Embed → Copy code → Paste</p>
+                    </div>
+                    <div class="instruction-card">
+                        <span class="platform-icon tt">♪</span>
+                        <h4>TikTok</h4>
+                        <p>Open video → Share → Embed → Copy code → Paste</p>
+                    </div>
+                    <div class="instruction-card">
+                        <span class="platform-icon yt">▶</span>
+                        <h4>YouTube</h4>
+                        <p>Open video → Share → Embed → Copy video ID → Replace in src</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-agg">
+            <nav class="footer-links">
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://tiktok.com">TikTok</a>
+                <a href="https://youtube.com">YouTube</a>
+                <a href="https://wa.me/1234567890">Contact</a>
+            </nav>
+            <p class="powered">All embeds are free - no paid services required</p>
+        </footer>
+    </div>
+
+    <!-- Embed Scripts (ALL FREE) -->
+    <script async src="//www.instagram.com/embed.js"></script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

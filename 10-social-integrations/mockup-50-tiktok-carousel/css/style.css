@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #000;
+    --white: #fff;
+    --gray: #888;
+    --tt-pink: #fe2c55;
+    --tt-cyan: #25f4ee;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.tiktok-layout {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header-tt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo-tt {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.follow-tt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tt-pink);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.follow-tt:hover {
+    transform: scale(1.05);
+}
+
+.tt-icon {
+    font-size: 1rem;
+}
+
+/* Main */
+.main-tt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.intro-tt {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.intro-tt h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.highlight-tt {
+    background: linear-gradient(90deg, var(--tt-cyan), var(--tt-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.intro-tt p {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* TikTok Embeds */
+.tiktok-embeds {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.embeds-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0 20px;
+}
+
+.embeds-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.embeds-scroll::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+}
+
+.embeds-scroll::-webkit-scrollbar-thumb {
+    background: var(--tt-pink);
+    border-radius: 2px;
+}
+
+.tt-embed-wrapper {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+}
+
+/* Style TikTok embed iframe */
+.tt-embed-wrapper iframe {
+    border-radius: 12px !important;
+}
+
+/* Placeholder for demo */
+.embed-placeholder {
+    width: 300px;
+    aspect-ratio: 9/16;
+    background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.embed-placeholder p {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.embed-placeholder span {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.scroll-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 10px;
+}
+
+/* Instructions */
+.instructions {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.instructions h3 {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.instructions ol {
+    margin-left: 20px;
+}
+
+.instructions li {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Links */
+.links-tt {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto;
+}
+
+.links-tt a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.links-tt a:hover {
+    color: var(--white);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .header-tt {
+        padding: 20px 40px;
+    }
+
+    .main-tt {
+        padding: 40px;
+    }
+
+    .intro-tt h1 {
+        font-size: 2.5rem;
+    }
+
+    .embeds-scroll {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

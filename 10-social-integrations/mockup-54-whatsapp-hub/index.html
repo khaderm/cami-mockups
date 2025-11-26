@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Connect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="whatsapp-layout">
+        <header class="header-wa">
+            <a href="/" class="logo-wa">CAMI</a>
+            <nav class="nav-wa">
+                <a href="https://instagram.com">IG</a>
+                <a href="https://tiktok.com">TT</a>
+                <a href="https://youtube.com">YT</a>
+            </nav>
+        </header>
+
+        <main class="main-wa">
+            <!-- Hero Section -->
+            <section class="hero-wa">
+                <div class="hero-avatar">
+                    <div class="avatar-ring">
+                        <div class="avatar-img">C</div>
+                    </div>
+                    <span class="online-status">
+                        <span class="status-dot"></span>
+                        Usually replies within 1 hour
+                    </span>
+                </div>
+                <h1>Let's Chat!</h1>
+                <p>For collabs, bookings, and business inquiries</p>
+            </section>
+
+            <!-- Main WhatsApp Button (FREE - wa.me link) -->
+            <section class="contact-options">
+                <!--
+                    FREE WHATSAPP LINK FORMAT:
+                    https://wa.me/PHONENUMBER?text=URL_ENCODED_MESSAGE
+
+                    - Phone number: country code + number (no +, spaces, or dashes)
+                    - Message: URL encoded (spaces = %20)
+
+                    Example: https://wa.me/1234567890?text=Hi%20Cami!
+                -->
+
+                <a href="https://wa.me/1234567890?text=Hi%20Cami!%20I%27d%20love%20to%20connect!"
+                   class="wa-primary"
+                   target="_blank">
+                    <span class="wa-icon">💬</span>
+                    <div class="wa-info">
+                        <span class="wa-title">Message on WhatsApp</span>
+                        <span class="wa-subtitle">Tap to start chatting</span>
+                    </div>
+                    <span class="wa-arrow">→</span>
+                </a>
+
+                <!-- Pre-filled Message Options (ALL FREE) -->
+                <div class="quick-messages">
+                    <p class="section-label">Quick messages:</p>
+                    <div class="message-chips">
+                        <a href="https://wa.me/1234567890?text=Hi%20Cami!%20I%27m%20interested%20in%20a%20brand%20collaboration"
+                           class="chip" target="_blank">
+                            Brand Collab
+                        </a>
+                        <a href="https://wa.me/1234567890?text=Hi%20Cami!%20I%27d%20like%20to%20book%20you%20for%20an%20event"
+                           class="chip" target="_blank">
+                            Event Booking
+                        </a>
+                        <a href="https://wa.me/1234567890?text=Hi%20Cami!%20I%20need%20help%20with%20party%20planning"
+                           class="chip" target="_blank">
+                            Party Planning
+                        </a>
+                        <a href="https://wa.me/1234567890?text=Hi%20Cami!%20Just%20wanted%20to%20say%20hi!"
+                           class="chip" target="_blank">
+                            Just Say Hi
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services/Booking Section -->
+            <section class="booking-section">
+                <h2>Services</h2>
+                <div class="booking-cards">
+                    <div class="booking-card">
+                        <div class="card-header">
+                            <span class="card-icon">📸</span>
+                        </div>
+                        <h3>Content Creation</h3>
+                        <p>Photo/video content for your brand</p>
+                        <a href="https://wa.me/1234567890?text=Hi!%20I%27m%20interested%20in%20Content%20Creation%20services.%20Can%20we%20discuss%20details?"
+                           class="book-btn" target="_blank">
+                            Inquire Now
+                        </a>
+                    </div>
+                    <div class="booking-card">
+                        <div class="card-header">
+                            <span class="card-icon">🎉</span>
+                        </div>
+                        <h3>Event Hosting</h3>
+                        <p>MC services and event coordination</p>
+                        <a href="https://wa.me/1234567890?text=Hi!%20I%27m%20interested%20in%20Event%20Hosting%20services.%20Can%20we%20discuss%20details?"
+                           class="book-btn" target="_blank">
+                            Inquire Now
+                        </a>
+                    </div>
+                    <div class="booking-card featured">
+                        <div class="card-badge">Popular</div>
+                        <div class="card-header">
+                            <span class="card-icon">⭐</span>
+                        </div>
+                        <h3>Brand Partnership</h3>
+                        <p>Full campaign with posts, stories & reels</p>
+                        <a href="https://wa.me/1234567890?text=Hi!%20I%27m%20interested%20in%20a%20Brand%20Partnership.%20Can%20we%20discuss%20details?"
+                           class="book-btn" target="_blank">
+                            Inquire Now
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Hours -->
+            <section class="hours-section">
+                <h2>Availability</h2>
+                <div class="hours-grid">
+                    <div class="hour-row">
+                        <span class="day">Mon - Fri</span>
+                        <span class="time">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="hour-row">
+                        <span class="day">Saturday</span>
+                        <span class="time">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="hour-row">
+                        <span class="day">Sunday</span>
+                        <span class="time">Closed</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instructions -->
+            <section class="instructions">
+                <h3>How WhatsApp Links Work:</h3>
+                <div class="code-example">
+                    <code>https://wa.me/<strong>PHONE</strong>?text=<strong>MESSAGE</strong></code>
+                </div>
+                <ul>
+                    <li><strong>PHONE</strong> = Country code + number (e.g., 1234567890)</li>
+                    <li><strong>MESSAGE</strong> = URL encoded text (spaces = %20)</li>
+                    <li>100% FREE - No API or service needed</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Floating WhatsApp Button (FREE) -->
+        <a href="https://wa.me/1234567890" class="wa-float" target="_blank">
+            <span class="wa-float-icon">💬</span>
+            <span class="wa-float-text">Chat</span>
+        </a>
+
+        <footer class="footer-wa">
+            <p>© 2025 Cami. WhatsApp links are 100% free.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

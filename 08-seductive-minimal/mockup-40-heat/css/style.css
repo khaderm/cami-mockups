@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a0a0a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+.heat-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150vw;
+    height: 150vh;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 100, 50, 0.15) 0%,
+        rgba(255, 50, 50, 0.1) 30%,
+        transparent 60%
+    );
+    pointer-events: none;
+    animation: heatPulse 6s ease-in-out infinite;
+}
+
+@keyframes heatPulse {
+    0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+main {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    padding: 25px;
+    text-align: center;
+}
+
+.name {
+    font-family: 'Italiana', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.8);
+}
+
+.video-showcase {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.video-blur-edge {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 30%,
+        rgba(26, 10, 10, 0.8) 70%
+    );
+    pointer-events: none;
+}
+
+.video-main {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 9/16;
+}
+
+.video-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a1515, #1a0a0a);
+    border-radius: 20px;
+    /* Replace with video */
+}
+
+.play-heat {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 100, 50, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 30px rgba(255, 100, 50, 0.5);
+}
+
+.play-heat:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 50px rgba(255, 100, 50, 0.7);
+}
+
+footer {
+    padding: 25px;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 300;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: rgba(255, 100, 50, 0.9);
+}
+
+@media (min-width: 768px) {
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .video-main {
+        max-width: 380px;
+    }
+}

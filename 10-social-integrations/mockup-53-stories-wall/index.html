@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - Stories</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stories-layout">
+        <!-- Stories Header -->
+        <header class="header-stories">
+            <a href="/" class="back-btn">←</a>
+            <div class="profile-mini">
+                <div class="avatar-mini">C</div>
+                <span>cami</span>
+            </div>
+            <div class="header-actions">
+                <a href="https://instagram.com" class="icon-btn">◉</a>
+                <a href="https://tiktok.com" class="icon-btn">♪</a>
+            </div>
+        </header>
+
+        <!-- Stories Grid - Full Screen Immersive -->
+        <main class="stories-grid">
+            <!-- Story 1 - Active/Featured -->
+            <div class="story-card featured" data-story="1">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-top">
+                            <div class="progress-bar">
+                                <div class="progress active"></div>
+                                <div class="progress"></div>
+                                <div class="progress"></div>
+                            </div>
+                            <div class="story-header">
+                                <div class="story-avatar">C</div>
+                                <span class="story-username">cami</span>
+                                <span class="story-time">2h</span>
+                            </div>
+                        </div>
+                        <div class="story-bottom">
+                            <span class="story-caption">Behind the scenes ✨</span>
+                            <div class="story-actions">
+                                <button class="action-btn">♥</button>
+                                <button class="action-btn">↗</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">Latest</span>
+            </div>
+
+            <!-- Story 2 -->
+            <div class="story-card" data-story="2">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-info">
+                            <span class="story-platform ig">Instagram</span>
+                            <span class="story-views">12.4K views</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">GRWM</span>
+            </div>
+
+            <!-- Story 3 -->
+            <div class="story-card" data-story="3">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-info">
+                            <span class="story-platform tt">TikTok</span>
+                            <span class="story-views">45.2K views</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">Dance</span>
+            </div>
+
+            <!-- Story 4 -->
+            <div class="story-card" data-story="4">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-info">
+                            <span class="story-platform ig">Reel</span>
+                            <span class="story-views">8.9K views</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">Food</span>
+            </div>
+
+            <!-- Story 5 -->
+            <div class="story-card" data-story="5">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-info">
+                            <span class="story-platform tt">TikTok</span>
+                            <span class="story-views">128K views</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">Viral</span>
+            </div>
+
+            <!-- Story 6 -->
+            <div class="story-card" data-story="6">
+                <div class="story-content">
+                    <div class="story-video"></div>
+                    <div class="story-overlay">
+                        <div class="story-info">
+                            <span class="story-platform ig">Instagram</span>
+                            <span class="story-views">6.2K views</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="story-label">Event</span>
+            </div>
+        </main>
+
+        <!-- Story Viewer Modal -->
+        <div class="story-viewer" id="story-viewer">
+            <div class="viewer-content">
+                <div class="viewer-video"></div>
+                <div class="viewer-overlay">
+                    <div class="viewer-progress">
+                        <div class="progress-segment active"></div>
+                        <div class="progress-segment"></div>
+                        <div class="progress-segment"></div>
+                    </div>
+                    <div class="viewer-header">
+                        <div class="viewer-avatar">C</div>
+                        <div class="viewer-info">
+                            <span class="viewer-name">cami</span>
+                            <span class="viewer-time">2h ago</span>
+                        </div>
+                        <button class="close-viewer">✕</button>
+                    </div>
+                    <div class="viewer-nav">
+                        <div class="nav-prev"></div>
+                        <div class="nav-next"></div>
+                    </div>
+                    <div class="viewer-footer">
+                        <input type="text" placeholder="Send message..." class="message-input">
+                        <div class="viewer-actions">
+                            <button class="react-btn">♥</button>
+                            <button class="react-btn">↗</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <footer class="footer-stories">
+            <a href="https://wa.me/1234567890" class="cta-stories">
+                Message me on WhatsApp →
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

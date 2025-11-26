@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fefefe;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+main {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 30px;
+    gap: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.bio {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 300;
+    max-width: 280px;
+    line-height: 1.6;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+}
+
+.links::-webkit-scrollbar {
+    display: none;
+}
+
+.links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.links a:hover {
+    color: #222;
+}
+
+.video-link {
+    cursor: pointer;
+}
+
+.video-link span {
+    font-size: 0.9rem;
+    color: #222;
+    border-bottom: 1px solid #222;
+    padding-bottom: 2px;
+    transition: all 0.2s;
+}
+
+.video-link:hover span {
+    color: #666;
+    border-color: #666;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 6rem;
+    }
+
+    .bio {
+        max-width: 400px;
+        font-size: 1.1rem;
+    }
+}

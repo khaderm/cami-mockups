@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMI - YouTube</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="youtube-layout">
+        <header class="header-yt">
+            <a href="/" class="logo-yt">CAMI</a>
+            <nav class="nav-yt">
+                <a href="https://instagram.com">IG</a>
+                <a href="https://tiktok.com">TT</a>
+            </nav>
+        </header>
+
+        <main class="main-yt">
+            <!-- Channel Info -->
+            <section class="channel-banner">
+                <div class="banner-bg"></div>
+                <div class="channel-info">
+                    <div class="channel-avatar">C</div>
+                    <div class="channel-details">
+                        <h1>Cami</h1>
+                        <p class="channel-desc">Content Creator | Brand Ambassador | Living my best life</p>
+                        <a href="https://youtube.com/@cami?sub_confirmation=1" class="subscribe-btn" target="_blank">
+                            Subscribe on YouTube
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Video - Native YouTube Embed (FREE) -->
+            <section class="featured-video">
+                <h2>Latest Video</h2>
+                <div class="video-embed">
+                    <!--
+                        HOW TO GET VIDEO ID:
+                        From: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                        Video ID: dQw4w9WgXcQ
+
+                        Replace YOUR_VIDEO_ID below:
+                    -->
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                            title="Latest Video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- More Videos Grid -->
+            <section class="video-grid-section">
+                <h2>More Videos</h2>
+                <div class="video-grid">
+                    <!-- Video 2 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+                                title="Video 2"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
+                                title="Video 3"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4"
+                                title="Video 4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5"
+                                title="Video 5"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://youtube.com/@cami/videos" class="view-all" target="_blank">
+                    View all videos on YouTube →
+                </a>
+            </section>
+
+            <!-- YouTube Shorts (Vertical Videos) -->
+            <section class="shorts-section">
+                <h2>Shorts</h2>
+                <div class="shorts-row">
+                    <!-- Short 1 -->
+                    <div class="short-item">
+                        <div class="short-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_SHORT_ID_1"
+                                title="Short 1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Short 2 -->
+                    <div class="short-item">
+                        <div class="short-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_SHORT_ID_2"
+                                title="Short 2"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Short 3 -->
+                    <div class="short-item">
+                        <div class="short-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_SHORT_ID_3"
+                                title="Short 3"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instructions -->
+            <section class="instructions">
+                <h3>How to Add Your Videos:</h3>
+                <ol>
+                    <li>Go to your YouTube video</li>
+                    <li>Click "Share" below the video</li>
+                    <li>Click "Embed" (optional) or just copy the video ID from the URL</li>
+                    <li>The video ID is the part after "v=" (e.g., youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong>)</li>
+                    <li>Replace YOUR_VIDEO_ID in the iframe src with your video ID</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer class="footer-yt">
+            <a href="https://wa.me/1234567890" class="contact-yt">
+                Business inquiries? Message me →
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
