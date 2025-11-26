@@ -17,23 +17,23 @@ const CAMI_CONTENT = {
 
     // ========== PROFILE INFO ==========
     profile: {
-        name: "CAMI",
+        name: "Camila Valdivia",
         tagline: "Content Creator | Event Planner | Brand Ambassador",
-        bio: "Creating memorable experiences and content that connects. Based in [City]. Available for collaborations, events, and partnerships.",
-        email: "hello@cami.com",
-        phone: "+1234567890", // For WhatsApp (country code + number, no spaces)
+        bio: "Creating memorable experiences and content that connects. Available for collaborations, events, and partnerships.",
+        email: "hello@camilavaldivia.com",
+        phone: "", // For WhatsApp (country code + number, no spaces)
     },
 
     // ========== SOCIAL LINKS ==========
     social: {
-        instagram: "https://instagram.com/cami",
-        instagramHandle: "@cami",
-        tiktok: "https://tiktok.com/@cami",
-        tiktokHandle: "@cami",
-        youtube: "https://youtube.com/@cami",
-        youtubeHandle: "@cami",
-        twitter: "https://twitter.com/cami",
-        whatsapp: "https://wa.me/1234567890",
+        instagram: "https://www.instagram.com/camila.valdiviaa",
+        instagramHandle: "@camila.valdiviaa",
+        tiktok: "https://www.tiktok.com/@camilavaldiviaa",
+        tiktokHandle: "@camilavaldiviaa",
+        youtube: "",
+        youtubeHandle: "",
+        twitter: "",
+        whatsapp: "",
     },
 
     // ========== STATS (Update with real numbers) ==========
