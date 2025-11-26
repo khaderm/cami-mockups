@@ -190,28 +190,8 @@
     }
     replaceTextInNode(document.body);
 
-    // ========== SPLIT CHARACTER REPLACEMENT ==========
-    // For animated titles with individual char spans, use FIRST NAME only
-    // to preserve design proportions (CAMI=4 chars, Camila=6 chars)
-    const firstName = C.profile.name.split(' ')[0].toUpperCase();
-
-    document.querySelectorAll('h1, h2, .logo, .title, [class*="title"]').forEach(el => {
-        const chars = el.querySelectorAll('.char');
-        if (chars.length > 0) {
-            const currentText = Array.from(chars).map(c => c.textContent).join('');
-            if (/^cami$/i.test(currentText)) {
-                // Get existing styles from first char span
-                const firstChar = chars[0];
-                const charStyle = firstChar.getAttribute('style') || '';
-                const charClass = firstChar.className;
-
-                // Rebuild with first name, preserving classes/styles
-                el.innerHTML = firstName.split('').map(char =>
-                    `<span class="${charClass}"${charStyle ? ` style="${charStyle}"` : ''}>${char}</span>`
-                ).join('');
-            }
-        }
-    })
+    // NOTE: Animated split-char titles (like <span class="char">C</span>...)
+    // are left as "CAMI" - changing them breaks the designed layouts
 
     // ========== UPDATE TITLE ==========
     document.title = document.title
