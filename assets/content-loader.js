@@ -190,6 +190,23 @@
     }
     replaceTextInNode(document.body);
 
+    // ========== SPLIT CHARACTER REPLACEMENT ==========
+    // Handle names split into <span class="char">C</span><span class="char">A</span>... etc
+    document.querySelectorAll('h1, h2, .logo, .title, [class*="title"]').forEach(el => {
+        const chars = el.querySelectorAll('.char');
+        if (chars.length > 0) {
+            // Get current text from chars
+            const currentText = Array.from(chars).map(c => c.textContent).join('');
+            if (/^cami$/i.test(currentText)) {
+                // Replace with new name split into chars
+                const nameChars = C.profile.name.split('');
+                el.innerHTML = nameChars.map(char =>
+                    `<span class="char">${char}</span>`
+                ).join('');
+            }
+        }
+    });
+
     // ========== UPDATE TITLE ==========
     document.title = document.title
         .replace(/\bCAMI\b/g, C.profile.name)
